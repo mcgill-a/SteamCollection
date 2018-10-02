@@ -1,4 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
-	<p>List:</p>
+	<h1>List:</h1>
+	<ul>
+		{% for app in info %}
+			<li>{{ app }}</li>
+		{% endfor %}
+	</ul>
+
 {% endblock %}
