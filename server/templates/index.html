@@ -1,6 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
 	<h3>Some content to display</h3>
-	<p>Data provided: {{ data.input }}</p>
+	
+	{% if input %}
+		<p>Data provided: {{ data.input }}</p>
+	{% else %}
+		<p>No data provided</p>
+	{% endif %}
 {% endblock %}
 

@@ -6,7 +6,7 @@ bootstrap = Bootstrap(app)
 
 @app.route('/')
 def index():
-	return "Root"
+	return render_template('index.html')
 
 @app.route('/test/<input>')
 def test(input=None):
