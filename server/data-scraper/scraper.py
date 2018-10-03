@@ -2,12 +2,11 @@ import sys, os, json, urllib
 from collections import OrderedDict
 
 """
-	Steamspy appid Miner
+	Steamspy & steam web api scraper
 	by Alex McGill
 	03/10/2018
 """
-print "--------------------"
-print "Miner Loaded"
+
 
 def get_args():
 	loc = ""	
@@ -38,6 +37,7 @@ def get_game_ids(apps):
 		ids.append(value["appid"])
 	return ids
 
+
 def get_steam_api_data(ids):
 	count = 0
 	collection = []
@@ -57,18 +57,11 @@ def get_steam_api_data(ids):
 			json.dump(data, outfile, indent=1)
 		print "JSON file retrieved from Steam Web API"
 
-	return collection
 
-
-def write_to_file(collection):
-	with open('output.json', 'w') as outfile:
-		json.dumps(collection, outfile, sort_keys=True, indent=4)
-	print "Data has been written to JSON file"
+print "--------------------"
 
 apps = get_game_ids(get_json_file())
-collection = get_steam_api_data(apps)
-#write_to_file(collection)
+get_steam_api_data(apps)
 
-print("Miner Completed")
 print "--------------------"
 
