@@ -1,6 +1,15 @@
 {% extends "base.html" %}
 {% block content %}
 	<h1>Game</h1>
-	<h2>{{ app.name }}</h2>
+	
+	{% if game %}}
+		{% for obj in game.iterkeys() %}
+			{% for key, value in game[obj].items() %}
+				<h2>{{ key }} : {{ value }}</h2>
+			{% endfor %}
+		{% endfor %}
+	{% else %}
+		<h2>Game not found</h2>
+	{% endif %}
 
 {% endblock %}

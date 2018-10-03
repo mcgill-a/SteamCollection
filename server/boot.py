@@ -23,16 +23,17 @@ def display():
 		return render_template('display-all.html', info=info)
 	return "Failed to json load data"
 
+@app.route('/game/')
 @app.route('/game/<appid>')
 def game(appid=None):
-	if (appid):
+	if (appid is not None):
 		filename = "data/steam-api/" + appid + ".json"
 		full_path = os.path.join(app.static_folder, filename)
 		if (os.path.exists(str(full_path))):
-			return "File found"
-		else:
-			return "File not found"
-	return "Unknown error"
+			with open(full_path) as data:
+				game = json.load(data)
+				return render_template('game.html', game=game)
+	return render_template('game.html', app=None)
 
 if __name__ == '__main__':
 	app.run(host='0.0.0.0', debug=True)
