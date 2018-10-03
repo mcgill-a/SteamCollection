@@ -1,15 +1,17 @@
 {% extends "base.html" %}
 {% block content %}
-
 	{% if game %}
 		{% for obj in game.iterkeys() %}
 			{% for key, value in game[obj].items() %}
 				{% if key == 'data' %}
 					<!-- GAME DATA ACCESSIBLE FROM HERE (value[field]) -->
+					<div class="container">
 					<h1>{{ value["name"] }}</h1>
 					<img src={{ value["header_image"] }}>
+					<h3>Release Date: {{ value["release_date"]["date"] }}</h3>
 					<h2>Description:</h2>
 					<p>{{ value["detailed_description"]|safe }}</p>
+					</div>
 				{% endif %}
 			{% endfor %}
 		{% endfor %}
