@@ -17,6 +17,12 @@
 					<h3>Description:</h2>
 					<p>{{ value["detailed_description"]|safe }}</p>
 					<br />
+					<h3>Categories:</h3>
+					<ul>
+						{% for category in value["categories"] %}
+							<li>{{ category["description"] }}</li>
+						{% endfor %}
+					</ul>
 					<h3>Developer: {{value["developers"][0] }}</h3>
 					</div>
 				{% endif %}
