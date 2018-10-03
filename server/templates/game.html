@@ -5,7 +5,11 @@
 	{% if game %}}
 		{% for obj in game.iterkeys() %}
 			{% for key, value in game[obj].items() %}
-				<h2>{{ key }} : {{ value }}</h2>
+				{% if key == 'data' %}
+					{% for key2, value2 in value.iteritems() %}
+						<h2>{{ key2 }} : {{ value2 }}</h2>
+					{% endfor %}
+				{% endif %}
 			{% endfor %}
 		{% endfor %}
 	{% else %}
