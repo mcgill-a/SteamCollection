@@ -41,16 +41,20 @@ def get_game_ids(apps):
 def get_steam_api_data(ids):
 	count = 0
 	collection = []
+	directory = os.path.join(os.getcwd(), 'games/')
+	if not os.path.exists(directory):
+		os.makedirs(directory)
 	for current in ids:
 		count += 1	
 		url ="https://store.steampowered.com/api/appdetails?appids=" + str(current) + "&cc=gb&l=en"
 		print count, url
-		# Steam API limits may occur (estimated to be around 100 per 5 minutes)
+		# Steam API limits may occur
 		response = urllib.urlopen(url)
 		data = json.loads(response.read())
 		#collection.append(data)
-		with open('append.json', 'a') as outfile:
-			json.dump(data, outfile, indent=4, separators=(',', ':'))
+		name = directory + str(current) + ".json"
+		with open(name, 'w') as outfile:
+			json.dump(data, outfile, indent=1)
 		print "JSON file retrieved from Steam Web API"
 
 	return collection
