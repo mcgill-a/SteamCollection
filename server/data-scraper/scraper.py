@@ -14,11 +14,12 @@ from collections import OrderedDict
 def get_args():
 	loc = ""	
 	for index, item in enumerate(sys.argv, start=1):
-		if sys.argv[index] == "-f" and len(sys.argv) > index:
+		if len(sys.argv) > index and sys.argv[index] == "-f":
 			loc = sys.argv[index+1]
 			print loc
 			return loc
 	print "Usage Error: 'python scraper.py -f <filename.json>'"
+	print "--------------------"
 	exit()
 
 
@@ -28,7 +29,8 @@ def get_json_file():
 		apps = json.load(data, object_pairs_hook=OrderedDict)
 		print "Loaded: ", filename
 		return apps
-	print "Failed to load JSON file"
+	print "Error: Failed to load JSON file"
+	print "--------------------"
 	exit()
 
 
