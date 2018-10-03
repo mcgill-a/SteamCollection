@@ -3,8 +3,11 @@ from collections import OrderedDict
 
 """
 	Steamspy & steam web api scraper
-	by Alex McGill
-	03/10/2018
+	By Alex McGill
+	Last Modified: 03/10/2018
+
+	Usage:
+	python scraper.py -f <filename.json>
 """
 
 
@@ -15,8 +18,8 @@ def get_args():
 			loc = sys.argv[index+1]
 			print loc
 			return loc
-	print("Failed to get argument")
-	return ""
+	print "Usage Error: 'python scraper.py -f <filename.json>'"
+	exit()
 
 
 def get_json_file():
@@ -26,7 +29,7 @@ def get_json_file():
 		print "Loaded: ", filename
 		return apps
 	print "Failed to load JSON file"
-	return null
+	exit()
 
 
 def get_game_ids(apps):
@@ -47,17 +50,16 @@ def get_steam_api_data(ids):
 	for current in ids:
 		count += 1	
 		url ="https://store.steampowered.com/api/appdetails?appids=" + str(current) + "&cc=gb&l=en"
-		print count, url
+		print count, " | ", url
 		# Steam API limits may occur
 		response = urllib.urlopen(url)
 		data = json.loads(response.read())
-		#collection.append(data)
 		name = directory + str(current) + ".json"
 		with open(name, 'w') as outfile:
 			json.dump(data, outfile, indent=1)
-		print "JSON file retrieved from Steam Web API"
+	print "All files successfuly retrieved"
 
-
+# Run Program
 print "--------------------"
 
 apps = get_game_ids(get_json_file())
