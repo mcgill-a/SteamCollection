@@ -4,22 +4,14 @@
 	<table class="table table-hover table-striped table-bordered table-dark">
 		<thead>
 		<tr>
-			<th>appid</th>
-			<th>name</th>
-			<th>developer</th>
-			<th>publisher</th>
-			<th>score_rank</th>
-			<th>positive</th>
-			<th>negative</th>
-			<th>userscore</th>
-			<th>owners</th>
-			<th>average_forever</th>
-			<th>average_2weeks</th>
-			<th>median_forever</th>
-			<th>median_2weeks</th>
-			<th>price</th>
-			<th>initialprice</th>
-			<th>discount</th>
+		<!-- Temporary solution to get table headers -->
+		{% for obj in info %}
+			{% if loop.index == 1 %}
+				{% for key, value in info[obj].items() %}
+					<th>{{ key }}</th>
+				{% endfor %}
+			{% endif %}
+		{% endfor %}
 		</tr>
 		</thead>
 		<tbody>
@@ -28,8 +20,8 @@
 				{% for key, value in info[obj].items() %}
 					<td>{{ value }}</td>
 				{% endfor %}
-			{% endfor %}
 			</tr>
+		{% endfor %}
 		</tbody>
 	</table>
 
