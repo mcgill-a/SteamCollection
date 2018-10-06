@@ -11,18 +11,25 @@
 						{% if key == 'data' %}
 							<!-- GAME DATA ACCESSIBLE FROM HERE (value[field]) -->
 							{% set link = value["steam_appid"] %} 
-							<div class="game col">
-								<h2><a href="/game/{{ link }}">{{ value["name"] }}</a></h1>
-								<img src={{ value["header_image"] }}>
-								{% if value["is_free"] %}
-									<h3>Free to Play</h3>
-								{% elif value["price_overview"] %}
-									<h3>Price: £{{ value["price_overview"]["final"] / 100 }}</h3>
+							<div class="col-sm-4">
+							<div class="game">
+								<a href="/game/{{ link }}">
+									<img src={{ value["header_image"] }}>
+									<h4>{{ value["name"] }}</h4>
+								</a>
+								{% if value["price_overview"] %}
+                                    <p>Price: £{{ value["price_overview"]["final"] / 100 }}</p>
+								{% else %}
+									<p>Free to Play</p>
 								{% endif %}
-							</div>
+							</div></div>
 						{% endif %}
 					{% endfor %}
 				{% endfor %}
+				{% if loop.index % 3 == 0 %}
+					</div>
+					<div class="row">
+				{% endif %}
 			{% endfor %}
 		</div>
 		</div>

@@ -8,6 +8,10 @@
 	margin-bottom: 20px;
 }
 
+.game img {
+	max-width: 100%;
+}
+
 .game a:link {
 	color: black;
 }
