@@ -8,7 +8,19 @@ bootstrap = Bootstrap(app)
 
 @app.route('/')
 def index():
-	return render_template('index.html')
+	files = []
+	count = 0
+	directory = "data/steam-api/"
+	full_path = os.path.join(app.static_folder, directory)
+	for filename in os.listdir(full_path):
+		if filename.endswith(".json") and count < 10:
+			file_path = (full_path + filename)
+			with open(file_path) as data:
+				info = json.load(data)
+				files.append(info)
+				count += 1
+	print "JSON File Read Count:", count
+	return render_template('index.html', files=files)
 
 @app.route('/test/<input>')
 def test(input=None):
