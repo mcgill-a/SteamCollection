@@ -13,7 +13,7 @@ def index():
 	directory = "data/steam-api/"
 	full_path = os.path.join(app.static_folder, directory)
 	for filename in os.listdir(full_path):
-		if filename.endswith(".json") and count < 10:
+		if filename.endswith(".json") and count < 100:
 			file_path = (full_path + filename)
 			with open(file_path) as data:
 				info = json.load(data)

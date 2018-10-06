@@ -9,10 +9,10 @@
 					<h1>{{ value["name"] }}</h1>
 					<img src={{ value["header_image"] }}>
 					<h3>Release Date: {{ value["release_date"]["date"] }}</h3>
-					{% if value["is_free"] %}
-						<h3>Free to Play</h3>
+					{% if value["price_overview"] %}
+						<p>Price: £{{ value["price_overview"]["final"] / 100 }}</p>
 					{% else %}
-						<h3>Price: £{{ value["price_overview"]["final"] / 100 }}</h3>
+						<p>Free to Play</p>
 					{% endif %}
 					<h3>Description:</h2>
 					<p>{{ value["detailed_description"]|safe }}</p>

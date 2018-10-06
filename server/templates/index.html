@@ -9,7 +9,7 @@
 				{% for obj in game.iterkeys() %}
 					{% for key, value in game[obj].items() %}
 						{% if key == 'data' %}
-							<!-- GAME DATA ACCESSIBLE FROM HERE (value[field]) -->
+							{# -- GAME DATA ACCESSIBLE FROM HERE (value[field]) #}
 							{% set link = value["steam_appid"] %} 
 							<div class="col-sm-4">
 							<div class="game">
