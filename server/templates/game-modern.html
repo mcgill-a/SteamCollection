@@ -6,12 +6,12 @@
 				{% if key == 'data' %}
 					<!-- GAME DATA ACCESSIBLE FROM HERE (value[field]) -->
 					<div class="game-banner" style="background-image: url({{ value["background"] }})">
-							<div class="left" style="background: blue">
+							<div class="left">
 								<img src={{ value["header_image"] }}>
 							</div>
-							<div class="right" style="background: red">
-								<h1>{{ value["name"] }}</h1>
-								<p>dashi du hamani, dashi du hama</p>
+							<div class="right">
+								<h2>{{ value["name"] }}</h2>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer pharetra tellus et sapien ornare, ac ultrices enim aliquam. Nunc fringilla dolor eget eleifend feugiat.</p>
 							</div>
 					{#<p>{{ value["about_the_game"]|safe }}</p> #}
 						</div>

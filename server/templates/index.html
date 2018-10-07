@@ -1,10 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
 	<h3>Home Page</h3>
-	
+	<div class="banner">
+		
+		
+	</div>
 	{% if files|length > 0 %}
 		<div class="game-list container">
-			<div class="row">
+			<div class="row row-eq-height">
 			{% for game in files %}
 				{% for obj in game.iterkeys() %}
 					{% for key, value in game[obj].items() %}
@@ -28,7 +31,7 @@
 				{% endfor %}
 				{% if loop.index % 3 == 0 %}
 					</div>
-					<div class="row">
+					<div class="row row-eq-height">
 				{% endif %}
 			{% endfor %}
 		</div>
