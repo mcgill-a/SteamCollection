@@ -1,3 +1,52 @@
+html, body {
+	height: 100%;
+	margin: 0;
+}
+
+.bg {
+	margin-top: -40px;
+	background-image: url("resources/home.jpg");
+	height: 100%;
+	width: 100%;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.landing {
+	position: absolute;
+	top: 12%;
+	left: 35%;
+	display: flex;
+	flex-direction: column;
+	width: 50%;
+	max-width: 600px;
+	text-align: right;
+	background: rgba(0,0,0,0.3)
+}
+
+.main-title {
+	font-family: Arial;
+	font-size: 50px;
+	color: white;
+	text-decoration: bold;
+}
+
+.sub-title {
+	font-family: Arial;
+	font-size: 38px;
+	color: white;
+	text-decoration: bold;	
+}
+
+.intro {
+	font-family: Arial;
+	font-size: 20px;
+	color: white;
+	text-decoration: none;
+}
+
+
 .game-banner {
 	background-size: 100%;
 	color: white;
