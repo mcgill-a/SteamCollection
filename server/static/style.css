@@ -3,10 +3,29 @@ html, body {
 	margin: 0;
 }
 
+.navbar {
+	height: 77px;
+	border-radius: 0;
+	padding-left: 3%;
+}
+
+.navbar-brand {
+	padding: 0;
+	height: 75px;
+}
+
+.navbar-brand>img {
+	height: 100%;
+	width: auto;
+}
+
+#nav-right {
+	color: white;
+}
+
 .bg {
 	margin-top: -40px;
 	background: linear-gradient(rgba(0,0,0,.2), rgba(0,0,0,0.3)),url("resources/home.jpg");
-	/* background-image: url("resources/home.jpg"); */
 	height: 100%;
 	width: 100%;
 	background-position: center;
@@ -23,11 +42,10 @@ html, body {
 	width: 50%;
 	max-width: 600px;
 	text-align: right;
-	/* background: rgba(0,0,0,0.3) */
 }
 
 .main-title {
-	font-family: 'Ubuntu', san-serif;
+	font-family: 'Ubuntu', sans-serif;
 	font-size: 50px;
 	color: white;
 	font-weight: bolder;
@@ -41,21 +59,30 @@ html, body {
 }
 
 .intro {
-	font-family: 'Rubik', Arial;
+	font-family: 'Rubik', sans-serif;
 	font-size: 20px;
 	color: white;
 	text-decoration: none;
 }
 
-.landing btn {
+.landing .btn {
+	font-family: 'Rubik', sans-serif;
+	font-size: 20px;
 	border-radius: 100px;
 	text-align: center;
-	padding: 1rem 3rem;
-	height: 30px;
+	height: 44px;
 	width: 150px;
-	color: white;
-	background: #464646;
-	border: 2px solid white;
+	color: white !important;
+	background: #202021;
+}
+
+.landing a:hover {
+	text-decoration: none !important;
+}
+
+.landing .btn:hover {
+	text-decoration: none;
+	background: black;
 }
 
 .game-banner {
