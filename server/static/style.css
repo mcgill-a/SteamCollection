@@ -5,7 +5,8 @@ html, body {
 
 .bg {
 	margin-top: -40px;
-	background-image: url("resources/home.jpg");
+	background: linear-gradient(rgba(0,0,0,.2), rgba(0,0,0,0.3)),url("resources/home.jpg");
+	/* background-image: url("resources/home.jpg"); */
 	height: 100%;
 	width: 100%;
 	background-position: center;
@@ -22,21 +23,21 @@ html, body {
 	width: 50%;
 	max-width: 600px;
 	text-align: right;
-	background: rgba(0,0,0,0.3)
+	/* background: rgba(0,0,0,0.3) */
 }
 
 .main-title {
-	font-family: Arial;
+	font-family: 'Ubuntu', san-serif;
 	font-size: 50px;
 	color: white;
-	text-decoration: bold;
+	font-weight: bolder;
 }
 
 .sub-title {
-	font-family: Arial;
+	font-family: 'Ubuntu', sans-serif;
 	font-size: 38px;
 	color: white;
-	text-decoration: bold;	
+	font-weight: normal;	
 }
 
 .intro {
@@ -46,6 +47,16 @@ html, body {
 	text-decoration: none;
 }
 
+.landing btn {
+	border-radius: 100px;
+	text-align: center;
+	padding: 1rem 3rem;
+	height: 30px;
+	width: 150px;
+	color: white;
+	background: #464646;
+	border: 2px solid white;
+}
 
 .game-banner {
 	background-size: 100%;
