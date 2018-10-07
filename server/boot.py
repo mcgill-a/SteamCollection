@@ -47,5 +47,19 @@ def game(appid=None):
 				return render_template('game.html', game=game)
 	return render_template('game.html', app=None)
 
+
+@app.route('/game-m/')
+@app.route('/game-m/<appid>')
+def gamem(appid=None):
+    if (appid is not None):
+        filename = "data/steam-api/" + appid + ".json"
+        full_path = os.path.join(app.static_folder, filename)
+        if (os.path.exists(str(full_path))):
+            with open(full_path) as data:
+                game = json.load(data)
+                return render_template('game-modern.html', game=game)
+    return render_template('game-modern.html', app=None)
+
+
 if __name__ == '__main__':
 	app.run(host='0.0.0.0', debug=True)

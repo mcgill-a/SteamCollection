@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+	{% if game %}
+		{% for obj in game.iterkeys() %}
+			{% for key, value in game[obj].items() %}
+				{% if key == 'data' %}
+					<!-- GAME DATA ACCESSIBLE FROM HERE (value[field]) -->
+					<div class="game-banner" style="background-image: url({{ value["background"] }})">
+							<div class="left" style="background: blue">
+								<img src={{ value["header_image"] }}>
+							</div>
+							<div class="right" style="background: red">
+								<h1>{{ value["name"] }}</h1>
+								<p>dashi du hamani, dashi du hama</p>
+							</div>
+					{#<p>{{ value["about_the_game"]|safe }}</p> #}
+						</div>
+					</div>
+				{% endif %}
+			{% endfor %}
+		{% endfor %}
+	{% else %}
+		<h2>Game not found</h2>
+	{% endif %}
+
+{% endblock %}

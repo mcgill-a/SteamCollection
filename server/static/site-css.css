@@ -1,11 +1,44 @@
+.game-banner {
+	background-size: 100%;
+	color: white;
+	display: flex;
+	padding: 0;
+	justify-content: center;
+	align-items: center;
+}
+
+.game-banner p {
+	font-size: 20px;
+	margin-top: 10px;
+}
+
+.game-banner .left {
+	width: 48%;
+	margin-right: 10px;
+}
+
+.game-banner .left img {
+	width: 100%;
+	max-height: 300px;
+	height: auto;
+}
+
+.game-banner .right {
+	width: 48%;
+	margin-left: 10px;
+	display:flex;
+	flex-direction: column;
+}
+
+
 .game-list {
 	background-color: #fff;
 }
 
 .game-list .game {
 	border-style: solid;
-	border-width: 5px;
-	margin-bottom: 20px;
+	border-width: 2px;
+	margin: 10px -5px 20px -5px;
 }
 
 .game img {
