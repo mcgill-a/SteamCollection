@@ -21,6 +21,7 @@ def test(input=None):
 @app.route('/games/')
 def games():
 	games = load_games()
+	random.shuffle(games)
 	return render_template('games.html', games=games)
 
 
@@ -45,7 +46,7 @@ def game(appid=None):
 	return render_template('game.html', app=None)
 	
 def load_games():
-	files = []
+	games = []
 	count = 0
 	directory = "data/steam-api/"
 	full_path = os.path.join(app.static_folder, directory)
@@ -56,11 +57,10 @@ def load_games():
 				info = json.load(data)
 				name = os.path.splitext(os.path.basename(file_path))[0]
 				if info[name]["success"] == True:
-					files.append(info)
+					games.append(info)
 					count += 1
 	print "INFO: Game List Loaded | Count: " + str(count)
-	random.shuffle(files)
-	return files	
+	return games
 
 @app.route('/category/<category>')
 def category(category=None):
