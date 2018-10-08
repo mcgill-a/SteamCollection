@@ -152,7 +152,7 @@ html, body {
 .game-content {
 	background: #222;
 	color: white;
-	height: 70%;
+	height: auto;
 }
 
 
