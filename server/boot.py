@@ -8,19 +8,7 @@ bootstrap = Bootstrap(app)
 
 @app.route('/')
 def index():
-	files = []
-	count = 0
-	directory = "data/steam-api/"
-	full_path = os.path.join(app.static_folder, directory)
-	for filename in os.listdir(full_path):
-		if filename.endswith(".json") and count < 100:
-			file_path = (full_path + filename)
-			with open(file_path) as data:
-				info = json.load(data)
-				files.append(info)
-				count += 1
-	print "JSON File Read Count:", count
-	return render_template('index.html', files=files)
+	return render_template('index.html')
 
 @app.errorhandler(Exception)
 def all_exception_handler(error):
@@ -67,8 +55,10 @@ def load_games():
 			file_path = (full_path + filename)
 			with open(file_path) as data:
 				info = json.load(data)
-				files.append(info)
-				count += 1
+				name = os.path.splitext(os.path.basename(file_path))[0]
+				if info[name]["success"] == True:
+					files.append(info)
+					count += 1
 	print "INFO: Game List Loaded | Count: " + str(count)
 	return files	
 
