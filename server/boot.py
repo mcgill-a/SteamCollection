@@ -1,8 +1,7 @@
 from collections import OrderedDict
 from flask import Flask, render_template, url_for, jsonify, abort
 from flask_bootstrap import Bootstrap
-import os
-import json
+import os, json, random
 app = Flask(__name__)
 bootstrap = Bootstrap(app)
 
@@ -60,6 +59,7 @@ def load_games():
 					files.append(info)
 					count += 1
 	print "INFO: Game List Loaded | Count: " + str(count)
+	random.shuffle(files)
 	return files	
 
 @app.route('/category/<category>')
