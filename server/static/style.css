@@ -86,6 +86,7 @@ html, body {
 }
 
 .game-banner {
+	margin-top: -20px;
 	background-size: 100%;
 	color: white;
 	display: flex;
@@ -105,20 +106,22 @@ html, body {
 
 .game-banner .left {
 	width: 50%;
-	margin-right: 10px;
+	max-width: 400px;
+	margin-right: 40px;
 	display: flex;
 	justify-content: center;
 	background: lightblue;
 }
 
 .game-banner .left img {
-	max-width: 100%;
 	max-height: 300px;
 	height: auto;
+	width: auto;
 }
 
 .game-banner .right {
 	width: 48%;
+	max-width: 420px;
 	margin-left: 10px;
 	display:flex;
 	flex-direction: column;
