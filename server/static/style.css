@@ -155,6 +155,11 @@ html, body {
 	height: auto;
 }
 
+.game-content #slides {
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
 
 a:link, a:visited {
 	color: black;

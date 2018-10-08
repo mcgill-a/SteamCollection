@@ -12,23 +12,18 @@
 							<div class="right">
 								<h2>{{ value["name"] }}</h2>
 								 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer pharetra tellus et sapien ornare, ac ultrices enim aliquam. Nunc fringilla dolor eget eleifend feugiat.</p>
-								{% if value["price_overview"] %}
-					                <h3>Price: £{{ value["price_overview"]["final"] / 100 }}</h3>
-						        {% else %}
-							        <h3>Free to Play</h3>
-		                        {% endif %}
-							</div>
+								</div>
 					{#<p>{{ value["about_the_game"]|safe }}</p> #}
 						</div>
 					</div>
 					<div class="game-content">
 					<div class="container">
-						<div id="myCarousel" class="carousel slide" data-ride="carousel">
+						<div id="slides" class="carousel slide" data-ride="carousel">
                             <!-- Indicators -->
                             <ol class="carousel-indicators">
-                                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                                <li data-target="#myCarousel" data-slide-to="1"></li>
-                                <li data-target="#myCarousel" data-slide-to="2"></li>
+                                <li data-target="#slides" data-slide-to="0" class="active"></li>
+                                <li data-target="#slides" data-slide-to="1"></li>
+                                <li data-target="#slides" data-slide-to="2"></li>
                             </ol>
 
                             <!-- Wrapper for slides -->
@@ -46,7 +41,6 @@
                                 {% endfor %}
 							</div>
                         </div>
-						<h3>Description:</h3>
 						<p>{{ value["detailed_description"]|safe }}</p>
 						{% if value["price_overview"] %}
 							<h3>Price: £{{ value["price_overview"]["final"] / 100 }}</h3>
