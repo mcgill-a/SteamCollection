@@ -1,5 +1,5 @@
 from collections import OrderedDict
-from flask import Flask, render_template, url_for, jsonify, abort
+from flask import Flask, render_template, url_for, jsonify
 from flask_bootstrap import Bootstrap
 import os, json, random
 app = Flask(__name__)
@@ -8,10 +8,6 @@ bootstrap = Bootstrap(app)
 @app.route('/')
 def index():
 	return render_template('index.html')
-
-@app.errorhandler(Exception)
-def all_exception_handler(error):
-	return 'Error', 500
 
 @app.route('/test/<input>')
 def test(input=None):
@@ -62,12 +58,23 @@ def load_games():
 	print "INFO: Game List Loaded | Count: " + str(count)
 	return games
 
+@app.route('/category/')
 @app.route('/category/<category>')
 def category(category=None):
 	if (category is not None):
-		games = load_games()
-		render_template('games.html', games=games)
-		
+		return "Category | " + category
+	else:
+		return "Category"
+
+
+@app.route('/developer/')
+@app.route('/developer/<developer>')
+def developer(developer=None):
+	if developer is not None:
+		return "Developers | " + developer
+	else:
+		return "Developers"
+
 
 if __name__ == '__main__':
 	app.run(host='0.0.0.0', debug=True)
