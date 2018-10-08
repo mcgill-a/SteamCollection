@@ -1,5 +1,5 @@
 from collections import OrderedDict
-from flask import Flask, render_template, url_for, jsonify
+from flask import Flask, render_template, url_for, jsonify, abort
 from flask_bootstrap import Bootstrap
 import os
 import json
@@ -22,6 +22,10 @@ def index():
 	print "JSON File Read Count:", count
 	return render_template('index.html', files=files)
 
+@app.errorhandler(Exception)
+def all_exception_handler(error):
+	return 'Error', 500
+
 @app.route('/test/<input>')
 def test(input=None):
 	data = {'input': input}
@@ -29,19 +33,8 @@ def test(input=None):
 
 @app.route('/games/')
 def games():
-    files = []
-    count = 0
-    directory = "data/steam-api/"
-    full_path = os.path.join(app.static_folder, directory)
-    for filename in os.listdir(full_path):
-        if filename.endswith(".json") and count < 100:
-            file_path = (full_path + filename)
-            with open(file_path) as data:
-                info = json.load(data)
-                files.append(info)
-                count += 1
-    print "JSON File Read Count:", count
-    return render_template('games.html', files=files)
+	games = load_games()
+	return render_template('games.html', games=games)
 
 
 @app.route('/display/')
@@ -58,25 +51,33 @@ def game(appid=None):
 	if (appid is not None):
 		filename = "data/steam-api/" + appid + ".json"
 		full_path = os.path.join(app.static_folder, filename)
-		if (os.path.exists(str(full_path))):
+        if (os.path.exists(str(full_path))):
 			with open(full_path) as data:
 				game = json.load(data)
 				return render_template('game.html', game=game)
 	return render_template('game.html', app=None)
+	
+def load_games():
+	files = []
+	count = 0
+	directory = "data/steam-api/"
+	full_path = os.path.join(app.static_folder, directory)
+	for filename in os.listdir(full_path):
+		if filename.endswith(".json") and count < 100:
+			file_path = (full_path + filename)
+			with open(file_path) as data:
+				info = json.load(data)
+				files.append(info)
+				count += 1
+	print "INFO: Game List Loaded | Count: " + str(count)
+	return files	
 
-
-@app.route('/game-old/')
-@app.route('/game-old/<appid>')
-def gamem(appid=None):
-    if (appid is not None):
-        filename = "data/steam-api/" + appid + ".json"
-        full_path = os.path.join(app.static_folder, filename)
-        if (os.path.exists(str(full_path))):
-            with open(full_path) as data:
-                game = json.load(data)
-                return render_template('game-old.html', game=game)
-    return render_template('game-old.html', app=None)
-
+@app.route('/category/<category>')
+def category(category=None):
+	if (category is not None):
+		games = load_games()
+		render_template('games.html', games=games)
+		
 
 if __name__ == '__main__':
 	app.run(host='0.0.0.0', debug=True)
