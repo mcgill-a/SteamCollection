@@ -5,25 +5,35 @@
 			{% for key, value in game[obj].items() %}
 				{% if key == 'data' %}
 					{# GAME DATA ACCESSIBLE FROM HERE (value[field]) #}
+					<div class="game-banner" style="background-image: url({{ value["background"] }})">
+							<div class="left">
+								<img src={{ value["header_image"] }}>
+							</div>
+							<div class="right">
+								<h2>{{ value["name"] }}</h2>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer pharetra tellus et sapien ornare, ac ultrices enim aliquam. Nunc fringilla dolor eget eleifend feugiat.</p>
+							</div>
+					{#<p>{{ value["about_the_game"]|safe }}</p> #}
+						</div>
+					</div>
+					<div class="game-content">
 					<div class="container">
-					<h1>{{ value["name"] }}</h1>
-					<img src={{ value["header_image"] }}>
-					<h3>Release Date: {{ value["release_date"]["date"] }}</h3>
-					{% if value["price_overview"] %}
-						<p>Price: £{{ value["price_overview"]["final"] / 100 }}</p>
-					{% else %}
-						<p>Free to Play</p>
-					{% endif %}
-					<h3>Description:</h2>
-					<p>{{ value["detailed_description"]|safe }}</p>
-					<br />
-					<h3>Categories:</h3>
-					<ul>
+						<h3>Description:</h3>
+						<p>{{ value["detailed_description"]|safe }}</p>
+						{% if value["price_overview"] %}
+							<h3>Price: £{{ value["price_overview"]["final"] / 100 }}</h3>
+						{% else %}
+							<h3>Free to Play</h3>
+						{% endif %}
+						<h3>Categories:</h3>
+						<ul>
 						{% for category in value["categories"] %}
 							<li>{{ category["description"] }}</li>
 						{% endfor %}
-					</ul>
-					<h3>Developer: {{value["developers"][0] }}</h3>
+						</ul>
+						<h3>Developer: {{value["developers"][0] }}</h3>
+					</div>
+					</div>
 					</div>
 				{% endif %}
 			{% endfor %}
