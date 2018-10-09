@@ -1,9 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
-	<h1>Games:</h1>
+<div class="games-bg">
 	<div class="banner">
-		
-		
+		<h1>Games</h1>
 	</div>
 	{% if games|length > 0 %}
 		<div class="game-list container">
@@ -15,23 +14,12 @@
 							{# -- GAME DATA ACCESSIBLE FROM HERE (value[field]) #}
 							{% set link = value["steam_appid"] %} 
 							<div class="col-sm-4">
-							<div class="game">
-								<a href="/game/{{ link }}">
-									<img src={{ value["header_image"] }}>
-									<div class="game-info">
-										<h4>{{ value["name"] }}</h4>
-								</a>
-								{% if value["price_overview"] %}
-                                    <p>Price: £{{ value["price_overview"]["final"] / 100 }}</p>
-                                {% else %}
-                                    <p>Free to Play</p>
-                                {% endif %}
-								{% if value["release_date"]["coming_soon"] != True %}
-									<p>Release Date: {{ value["release_date"]["date"] }}</p>
-								{% else %}
-									<p>Coming Soon!</p>
-								{% endif %}
-							</div></div></div>
+								<div class="game">
+									<a href="/game/{{ link }}">
+										<img src={{ value["header_image"] }}>
+									</a>
+								</div>
+							</div>
 						{% endif %}
 					{% endfor %}
 				{% endfor %}
@@ -40,10 +28,11 @@
 					<div class="row row-eq-height-equal">
 				{% endif %}
 			{% endfor %}
-		</div>
+			</div>
 		</div>
 	{% else %}
 		<p>No data provided</p>
 	{% endif %}
+</div>
 {% endblock %}
 
