@@ -18,14 +18,20 @@
 							<div class="game">
 								<a href="/game/{{ link }}">
 									<img src={{ value["header_image"] }}>
-									<h4>{{ value["name"] }}</h4>
+									<div class="game-info">
+										<h4>{{ value["name"] }}</h4>
 								</a>
 								{% if value["price_overview"] %}
                                     <p>Price: £{{ value["price_overview"]["final"] / 100 }}</p>
+                                {% else %}
+                                    <p>Free to Play</p>
+                                {% endif %}
+								{% if value["release_date"]["coming_soon"] != True %}
+									<p>Release Date: {{ value["release_date"]["date"] }}</p>
 								{% else %}
-									<p>Free to Play</p>
+									<p>Coming Soon!</p>
 								{% endif %}
-							</div></div>
+							</div></div></div>
 						{% endif %}
 					{% endfor %}
 				{% endfor %}

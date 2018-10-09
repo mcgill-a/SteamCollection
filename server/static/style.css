@@ -3,6 +3,12 @@ html, body {
 	margin: 0;
 }
 
+.row {
+	display: flex;
+	margin-bottom: 15px;
+
+}
+
 .navbar li a {
 	color: white !important;
 	font-family: 'Poiret One', cursive;
@@ -161,8 +167,25 @@ html, body {
 	min-height: 200px;
 }
 
+.game {
+	font-family: 'Ubuntu', cursive;
+	height: 100%;
+}
+
 .game img {
 	max-width: 100%;
+}
+
+.game .game-info {
+	margin: 0 4px;
+}
+
+.game h4 {
+	font-weight: bold;
+}
+
+.game p {
+	margin-top
 }
 
 .game a:link {
