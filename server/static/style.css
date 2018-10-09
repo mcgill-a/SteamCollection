@@ -161,8 +161,8 @@ html, body {
 }
 
 
-. a:link, a:visited {
-	/* color: black; */
+a:link, a:visited {
+	color: white;
 	text-decoration: none;
 }
 
@@ -170,4 +170,10 @@ a:hover {
 	text-decoration: underline !important;
 }
 
+.game-content a:link {
+	color: #bcbcbc;
+}
 
+.game-content a:hover {
+	text-decoration: underline;
+}

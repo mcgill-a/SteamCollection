@@ -58,6 +58,27 @@ def load_games():
 	print "INFO: Game List Loaded | Count: " + str(count)
 	return games
 
+def load_developer_games(dev):
+	games = []
+	count = 0
+	directory = "data/steam-api/"
+	full_path = os.path.join(app.static_folder, directory)
+	for filename in os.listdir(full_path):
+		if filename.endswith(".json") and count < 100:
+			file_path = (full_path + filename)
+			with open(file_path) as data:
+				info = json.load(data)
+				name = os.path.splitext(os.path.basename(file_path))[0]
+				if info[name]["success"] == True:
+					for current in info[name]["data"]["developers"]:
+						if current.lower() == dev.lower():
+							games.append(info)
+							count += 1
+	if count > 0:
+		print "INFO: Developer Game List Loaded | " + dev + " | Count: " + str(count)
+	return games
+
+
 @app.route('/category/')
 @app.route('/category/<category>')
 def category(category=None):
@@ -68,10 +89,11 @@ def category(category=None):
 
 
 @app.route('/developer/')
-@app.route('/developer/<developer>')
-def developer(developer=None):
-	if developer is not None:
-		return "Developers | " + developer
+@app.route('/developer/<dev>')
+def developer(dev=None):
+	if dev is not None:
+		games = load_developer_games(dev)
+		return render_template('games.html', games=games)
 	else:
 		return "Developers"
 
