@@ -23,6 +23,11 @@ html, body {
 	text-decoration: none !important;
 }
 
+.navbar .active a {
+	background: none !important;
+	border-bottom: 2px solid white;
+}
+
 .navbar ul {
 	margin-right: 40px;
 }

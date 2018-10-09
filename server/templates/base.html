@@ -21,6 +21,13 @@
 {% endblock %}
 
 {% block navbar %}
+{% set navigation_bar = [
+	('/', 'index', 'Home'),
+	('/games/', 'games', 'Games'),
+	('/display/', 'list', 'List')
+] -%}
+
+{% set active_page = active_page|default('index') -%}
 
 <div class="navbar navbar-expand-sm navbar-inverse">
 	<div class="container-fluid">
@@ -28,9 +35,11 @@
 			<a class="navbar-brand" href="/"><img src="/static/resources/am-logo.jpg" alt="Alex McGill Logo"></a>
 		</div>
 		<ul class="nav navbar-nav navbar-right">
-			<li><a href="/">HOME</a></li>
-			<li><a href="/games/">GAMES</a></li>
-			<li><a href="/display/">LIST</a></li>
+			{% for href, id, caption in navigation_bar %}
+				<li {% if id == active_page %} class="active" {% endif %}>
+					<a href="{{ href|e }}">{{ caption|e }}</a>
+				</li>
+			{% endfor%}
 		</ul>
 	</div>
 </div>
