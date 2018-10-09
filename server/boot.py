@@ -72,6 +72,18 @@ def load_games():
 	print "INFO: Game List Loaded | Count: " + str(count)
 	return games
 
+def load_genre_games(genre_input):
+	games = load_games()
+	relevant_games = []
+	for index, game in enumerate(games):
+		genres = []
+		appid = next(iter(games[index]))
+		if "genres" in game[str(appid)]["data"]:
+			for genre in game[str(appid)]["data"]["genres"]:
+				if genre_input.lower() == genre["description"].lower():
+					relevant_games.append(game)
+	return relevant_games
+
 def load_developer_games(dev):
 	games = []
 	count = 0
@@ -82,7 +94,8 @@ def load_developer_games(dev):
 			file_path = (full_path + filename)
 			with open(file_path) as data:
 				info = json.load(data)
-				name = os.path.splitext(os.path.basename(file_path))[0]
+				#name = os.path.splitext(os.path.basename(file_path))[0]
+				name = next(iter(info))
 				if info[name]["success"] == True:
 					for current in info[name]["data"]["developers"]:
 						if current.lower() == dev.lower():
@@ -93,13 +106,14 @@ def load_developer_games(dev):
 	return games
 
 
-@app.route('/category/')
-@app.route('/category/<category>')
-def category(category=None):
-	if (category is not None):
-		return "Category | " + category
+@app.route('/genre/')
+@app.route('/genre/<genre>')
+def category(genre=None):
+	if (genre is not None):
+		games = load_genre_games(genre)
+		return render_template('games.html', games=games)
 	else:
-		return "Category"
+		return "Genre"
 
 
 @app.route('/developer/')
