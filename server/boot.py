@@ -31,8 +31,8 @@ def display():
 
 
 def remove_html_tags(input):
-	cleanr = re.compile('<.*?>')
-	cleaned = re.sub(cleanr, '', input)
+	expr = re.compile('<.*?>')
+	cleaned = re.sub(expr, '', input)
 	return cleaned
 
 @app.route('/game/')
@@ -45,10 +45,12 @@ def game(appid=None):
         if (os.path.exists(str(full_path))):
 			with open(full_path) as data:
 				game = json.load(data)
+				# If there is a short decription then use it instead of longer description
 				if len(game[appid]["data"]["short_description"]) > 40:
-					desc = remove_html_tags(game[appid]["data"]["short_description"])[:250]
+					desc = remove_html_tags(game[appid]["data"]["short_description"])[:300]
 				else:
-					desc = remove_html_tags(game[appid]["data"]["about_the_game"])[:250]
+					desc = remove_html_tags(game[appid]["data"]["about_the_game"])[:300]
+				desc = desc.rsplit('.',1)[0] + "."
 				return render_template('game.html', game=game, desc=desc)
 	return render_template('game.html', app=None)
 	
