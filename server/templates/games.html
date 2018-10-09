@@ -7,7 +7,7 @@
 	</div>
 	{% if games|length > 0 %}
 		<div class="game-list container">
-			<div class="row row-eq-height">
+			<div class="row row-eq-height equal">
 			{% for game in games %}
 				{% for obj in game.iterkeys() %}
 					{% for key, value in game[obj].items() %}
@@ -31,7 +31,7 @@
 				{% endfor %}
 				{% if loop.index % 3 == 0 %}
 					</div>
-					<div class="row row-eq-height">
+					<div class="row row-eq-height-equal">
 				{% endif %}
 			{% endfor %}
 		</div>

@@ -50,8 +50,8 @@ def game(appid=None):
 					desc = remove_html_tags(game[appid]["data"]["short_description"])[:300]
 				else:
 					desc = remove_html_tags(game[appid]["data"]["about_the_game"])[:300]
-				# Get all complete sentences from the description
-				desc = desc.rsplit('.',1)[0] + "."
+					# Get all complete sentences from the description
+					desc = desc.rsplit('.',1)[0] + "."
 				return render_template('game.html', game=game, desc=desc)
 	return render_template('game.html', app=None)
 	

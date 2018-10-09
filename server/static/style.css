@@ -3,6 +3,23 @@ html, body {
 	margin: 0;
 }
 
+.navbar li a {
+	color: white !important;
+	font-family: 'Poiret One', cursive;
+	font-size: 22px;
+	padding: 10px 10px !important;
+	margin: 20px 5px !important;
+	/* border: solid white 2px; */
+}
+
+.navbar li a:hover {
+	font-weight: bolder;
+	text-decoration: none !important;
+}
+
+.navbar ul {
+	margin-right: 40px;
+}
 .navbar {
 	height: 77px;
 	border-radius: 0;
@@ -17,6 +34,10 @@ html, body {
 .navbar-brand>img {
 	height: 100%;
 	width: auto;
+}
+
+.ul.nav li {
+	color: white !important;
 }
 
 #nav-right {

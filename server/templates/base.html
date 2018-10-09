@@ -12,7 +12,7 @@
     {{super()}}
     <link rel="stylesheet" type="text/css"
           href="{{url_for('static', filename='style.css')}}">
-	<link href="https://fonts.googleapis.com/css?family=Rubik|Ubuntu" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Rubik|Poiret+One|Ubuntu" rel="stylesheet">
 {% endblock %}
 
 {% block scripts %}
@@ -22,15 +22,15 @@
 
 {% block navbar %}
 
-<div class="navbar navbar-inverse">
+<div class="navbar navbar-expand-sm navbar-inverse">
 	<div class="container-fluid">
 		<div class="navbar-header">
 			<a class="navbar-brand" href="/"><img src="/static/resources/am-logo.jpg" alt="Alex McGill Logo"></a>
 		</div>
 		<ul class="nav navbar-nav navbar-right">
-			<li><a href="/">Home</a></li>
-			<li><a href="/games/">Games</a></li>
-			<li><a href="/display/">List</a></li>
+			<li><a href="/">HOME</a></li>
+			<li><a href="/games/">GAMES</a></li>
+			<li><a href="/display/">LIST</a></li>
 		</ul>
 	</div>
 </div>
