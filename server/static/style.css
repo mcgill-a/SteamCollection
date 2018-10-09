@@ -6,7 +6,6 @@ html, body {
 .row {
 	display: flex;
 	margin-bottom: 15px;
-
 }
 
 .navbar li a {
@@ -52,12 +51,17 @@ html, body {
 
 .bg {
 	margin-top: -40px;
-	background: linear-gradient(rgba(0,0,0,.2), rgba(0,0,0,0.3)),url("resources/home.jpg");
+	background: linear-gradient(rgba(0,0,0,.1), rgba(0,0,0,0.3)),url("resources/home.jpg");
 	height: 100%;
 	width: 100%;
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
+}
+
+.games-bg {
+	background: linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,0.6)),url("resources/game-bg.jpg");
+
 }
 
 .landing {
@@ -156,36 +160,36 @@ html, body {
 	padding: 10px;
 }
 
-.game-list {
-	background-color: #fff;
-}
-
 .game-list .game {
-	border-style: solid;
-	border-width: 2px;
 	margin: 10px -5px 20px -5px;
 	min-height: 200px;
-}
-
-.game {
 	font-family: 'Ubuntu', cursive;
 	height: 100%;
+	background-color: white;
+	background: url("resources/game-bg.jpg");
+	border-radius: 10px;
+	border: 2px solid white;
+	color: white;
 }
 
 .game img {
 	max-width: 100%;
+	border-radius: 10px 10px 0 0;
 }
 
 .game .game-info {
 	margin: 0 4px;
+	text-align: right;
 }
 
 .game h4 {
+	font-size: 25px;
+	text-align: center;
 	font-weight: bold;
 }
 
 .game p {
-	margin-top
+	margin-top: -10px;
 }
 
 .game a:link {
