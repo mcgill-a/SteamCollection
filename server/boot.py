@@ -1,7 +1,7 @@
 from collections import OrderedDict
 from flask import Flask, render_template, url_for, jsonify
 from flask_bootstrap import Bootstrap
-import os, json, random
+import os, json, random, re
 app = Flask(__name__)
 bootstrap = Bootstrap(app)
 
@@ -29,16 +29,27 @@ def display():
 		return render_template('display-all.html', info=info)
 	return "Failed to json load data"
 
+
+def remove_html_tags(input):
+	cleanr = re.compile('<.*?>')
+	cleaned = re.sub(cleanr, '', input)
+	return cleaned
+
 @app.route('/game/')
 @app.route('/game/<appid>')
 def game(appid=None):
+	desc = "";
 	if (appid is not None):
 		filename = "data/steam-api/" + appid + ".json"
 		full_path = os.path.join(app.static_folder, filename)
         if (os.path.exists(str(full_path))):
 			with open(full_path) as data:
 				game = json.load(data)
-				return render_template('game.html', game=game)
+				if len(game[appid]["data"]["short_description"]) > 40:
+					desc = remove_html_tags(game[appid]["data"]["short_description"])[:250]
+				else:
+					desc = remove_html_tags(game[appid]["data"]["about_the_game"])[:250]
+				return render_template('game.html', game=game, desc=desc)
 	return render_template('game.html', app=None)
 	
 def load_games():

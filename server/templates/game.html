@@ -11,7 +11,7 @@
 							</div>
 							<div class="right">
 								<h2>{{ value["name"] }}</h2>
-								 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer pharetra tellus et sapien ornare, ac ultrices enim aliquam. Nunc fringilla dolor eget eleifend feugiat.</p>
+								{{ desc }}
 								</div>
 					{#<p>{{ value["about_the_game"]|safe }}</p> #}
 						</div>
@@ -25,7 +25,6 @@
                                 <li data-target="#slides" data-slide-to="1"></li>
                                 <li data-target="#slides" data-slide-to="2"></li>
                             </ol>
-
                             <!-- Wrapper for slides -->
                             <div class="carousel-inner">
                                 {% for pic in value["screenshots"] %}
