@@ -18,6 +18,7 @@
 					</div>
 					<div class="game-content">
 					<div class="container">
+					<div class="section-title"><h2>GALLERY</h2></div>
 						<div id="slides" class="carousel slide" data-ride="carousel">
                             <!-- Indicators -->
                             <ol class="carousel-indicators">
@@ -41,7 +42,8 @@
                                 {% endfor %}
 							</div>
                         </div>
-						<p>{{ value["detailed_description"]|safe }}</p>
+						<div class="section-title"><h2>GAME DETAILS</h2></div>
+						<div class="section"><p>{{ value["detailed_description"]|safe }}</p></div>
 						{% if value["price_overview"] %}
 							<h3>Price: £{{ value["price_overview"]["final"] / 100 }}</h3>
 						{% else %}

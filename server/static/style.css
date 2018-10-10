@@ -234,6 +234,50 @@ html, body {
 	margin-bottom: 30px;
 }
 
+.game-content .section-title {
+	width: 100%;
+	border-bottom: 2px solid white;
+	font-family: 'Poiret One', cursive;
+	margin-bottom: 5px;
+}
+/* .game-content .section-desc {
+	border-top: 2px solid white;
+	margin-top: 5px;
+} */
+/* .game-content .bb_tag { 
+	font-style: italic; 
+	font-family: Georgia, Times, serif; 
+	font-size: 24px; 
+	color: #bfe1f1;
+} */
+
+.game-content ul.bb_ul {
+	list-style-type: circle;
+}
+
+.game-content ul.bb_ul li {
+
+}
+.game-content ul.bb_ul {
+
+}
+
+
+.game-content ul.bb_ul li {
+	padding:3px 10px;
+	font-weight: 100; 
+	font-family: Arial; 
+	font-size: 13px; 
+	color: #eee; 
+	border-left: 1px solid white;
+}
+
+.game-content ul.bb_ul li strong {
+	display:block; 
+	font-family:Arial; 
+	font-size:17px; 
+	color:#bfe1f1;
+}
 
 a:link, a:visited {
 	color: white;
