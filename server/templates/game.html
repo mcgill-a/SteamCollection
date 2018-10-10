@@ -53,7 +53,7 @@
 						<ul class="bb_ul">
 						{% for cat in value["categories"] %}
 							<li>
-								<a href="/category/{{ cat["description"] }}">{{ cat["description"] }}</a>
+								<a href="/categories/{{ cat["description"] }}">{{ cat["description"] }}</a>
 							</li>
 						{% endfor %}
 						</ul>
@@ -65,7 +65,7 @@
 						<ul>
 							{% for dev in value["developers"] %}
 								<li>
-									<a href="/developer/{{ dev }}">{{ dev }}</a>
+									<a href="/developers/{{ dev }}">{{ dev }}</a>
 								</li>
 							{% endfor %}
 						</ul>
