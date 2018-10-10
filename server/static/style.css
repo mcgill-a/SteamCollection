@@ -70,7 +70,8 @@ html, body {
 .games-bg {
 	margin-top: -20px;
 	background: linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,0.6)),url("resources/game-bg.jpg");
-
+	min-height: 100%;
+	height: auto;
 }
 
 .landing {
