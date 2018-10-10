@@ -14,8 +14,7 @@ html, body {
 	font-family: 'Poiret One', cursive;
 	font-size: 22px;
 	padding: 10px 10px !important;
-	margin: 20px 5px !important;
-	/* border: solid white 2px; */
+	margin: 18px 5px !important;
 }
 
 .navbar li a:hover {
@@ -34,8 +33,10 @@ html, body {
 .navbar {
 	height: 77px;
 	border: none;
+	border-bottom: 2px solid white;
 	border-radius: 0;
 	padding-left: 3%;
+	margin-bottom: 0;
 }
 
 .navbar-brand {
@@ -125,12 +126,12 @@ html, body {
 }
 
 .game-banner {
-	margin-top: -20px;
+	/*margin-top: -25px !important; */
 	width: 100%;
 	background-size: 100%;
 	color: white;
 	display: flex;
-	padding: 10% 10% 10% 10%;
+	padding: 10% 10% 10% 10% !important;
 	justify-content: center;
 	align-items: center;
 	max-height: 100%; /* Make image smaller */
