@@ -35,8 +35,8 @@ def remove_html_tags(input):
 	cleaned = re.sub(expr, '', input)
 	return cleaned
 
-@app.route('/game/')
-@app.route('/game/<appid>')
+
+@app.route('/games/<appid>')
 def game(appid=None):
 	desc = "";
 	if (appid is not None):
@@ -119,8 +119,7 @@ def load_developer_games(dev):
 	return games
 
 
-@app.route('/genre/')
-@app.route('/genre/<genre>')
+@app.route('/genres/<genre>')
 def genre(genre=None):
 	if (genre is not None):
 		games = load_genre_games(genre)
@@ -135,8 +134,6 @@ def genres():
 	return "genres"
 
 
-@app.route('/developer/')
-@app.route('/developer/<dev>')
 @app.route('/developers/<dev>')
 def developer(dev=None):
 	if dev is not None:
@@ -152,8 +149,7 @@ def developers():
 	return "developers"
 
 
-@app.route('/category/')
-@app.route('/category/<cat>')
+@app.route('/categories/<cat>')
 def category(cat=None):
 	if cat is not None:
 		games = load_category_games(cat)
