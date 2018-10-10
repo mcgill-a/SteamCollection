@@ -84,6 +84,19 @@ def load_genre_games(genre_input):
 					relevant_games.append(game)
 	return relevant_games
 
+def load_category_games(cat_input):
+	games = load_games()
+	relevant_games = []
+	for index, game in enumerate(games):
+		genres = []
+		appid = next(iter(games[index]))
+		if "categories" in game[str(appid)]["data"]:
+			for category in game[str(appid)]["data"]["categories"]:
+				if cat_input.lower() == category["description"].lower():
+					relevant_games.append(game)
+	return relevant_games
+
+
 def load_developer_games(dev):
 	games = []
 	count = 0
@@ -108,7 +121,7 @@ def load_developer_games(dev):
 
 @app.route('/genre/')
 @app.route('/genre/<genre>')
-def category(genre=None):
+def genre(genre=None):
 	if (genre is not None):
 		games = load_genre_games(genre)
 		genre = string.capwords(genre)
@@ -127,6 +140,16 @@ def developer(dev=None):
 	else:
 		return render_template('developer.html', developer=dev)
 
+
+@app.route('/category/')
+@app.route('/category/<cat>')
+def category(cat=None):
+	if cat is not None:
+		games = load_category_games(cat)
+		cat = string.capwords(cat)
+		return render_template('category.html', games=games, category=cat)
+	else:
+		return render_template('category.html', category=cat)
 
 if __name__ == '__main__':
 	app.run(host='0.0.0.0', debug=True)
