@@ -129,9 +129,15 @@ def genre(genre=None):
 	else:
 		return render_template('genre.html', genre=genre)
 
+@app.route('/genres/')
+def genres():
+	# List all genres
+	return "genres"
+
 
 @app.route('/developer/')
 @app.route('/developer/<dev>')
+@app.route('/developers/<dev>')
 def developer(dev=None):
 	if dev is not None:
 		games = load_developer_games(dev)
@@ -139,6 +145,11 @@ def developer(dev=None):
 		return render_template('developer.html', games=games, developer=dev)
 	else:
 		return render_template('developer.html', developer=dev)
+
+@app.route('/developers/')
+def developers():
+	# List all the developers
+	return "developers"
 
 
 @app.route('/category/')
@@ -150,6 +161,11 @@ def category(cat=None):
 		return render_template('category.html', games=games, category=cat)
 	else:
 		return render_template('category.html', category=cat)
+
+@app.route('/categories/')
+def categories():
+	# List all categories
+	return "categories"
 
 if __name__ == '__main__':
 	app.run(host='0.0.0.0', debug=True)
