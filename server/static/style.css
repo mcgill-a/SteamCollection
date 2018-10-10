@@ -125,6 +125,11 @@ html, body {
 	background: black;
 }
 
+.banner {
+	margin-top: 10px;
+	color: white;
+}
+
 .game-banner {
 	/*margin-top: -25px !important; */
 	width: 100%;

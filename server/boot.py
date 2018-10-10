@@ -1,7 +1,7 @@
 from collections import OrderedDict
 from flask import Flask, render_template, url_for, jsonify
 from flask_bootstrap import Bootstrap
-import os, json, random, re
+import os, json, random, re, string
 app = Flask(__name__)
 bootstrap = Bootstrap(app)
 
@@ -111,9 +111,10 @@ def load_developer_games(dev):
 def category(genre=None):
 	if (genre is not None):
 		games = load_genre_games(genre)
-		return render_template('games.html', games=games)
+		genre = string.capwords(genre)
+		return render_template('genre.html', games=games, genre=genre)
 	else:
-		return "Genre"
+		return render_template('genre.html', genre=genre)
 
 
 @app.route('/developer/')
@@ -121,9 +122,10 @@ def category(genre=None):
 def developer(dev=None):
 	if dev is not None:
 		games = load_developer_games(dev)
-		return render_template('games.html', games=games)
+		dev = string.capwords(dev)
+		return render_template('developer.html', games=games, developer=dev)
 	else:
-		return "Developers"
+		return render_template('developer.html', developer=dev)
 
 
 if __name__ == '__main__':
