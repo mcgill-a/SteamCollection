@@ -44,11 +44,14 @@
                         </div>
 						<div class="section-title"><h2>GAME DETAILS</h2></div>
 						<div class="section"><p>{{ value["detailed_description"]|safe }}</p></div>
+						
+						<div class="section-price">
 						{% if value["price_overview"] %}
-							<h3>Price: £{{ value["price_overview"]["final"] / 100 }}</h3>
+							<h3>PRICE - £{{ value["price_overview"]["final"] / 100 }}</h3>
 						{% else %}
-							<h3>Free to Play</h3>
+							<h3>FREE TO PLAY</h3>
 						{% endif %}
+						</div>
 						<div class="section-title"><h2>CATEGORIES</h2></div><br />
 						<ul class="bb_ul">
 						{% for cat in value["categories"] %}

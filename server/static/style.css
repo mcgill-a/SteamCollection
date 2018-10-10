@@ -264,6 +264,20 @@ html, body {
 	justify-content: space-between;
 }
 
+.game-content .section-price {
+	display: flex;
+	border-top: 2px solid white;
+	border-bottom: 2px solid white;
+	align-items: center;
+	justify-content: center;
+}
+
+.game-content .section-price h3 {
+	margin: 0;
+	padding: 10px 0;
+	font-family: 'Poiret One', cursive;
+	font-weight: bold;
+}
 
 /* .game-content .section-desc {
 	border-top: 2px solid white;
@@ -295,6 +309,12 @@ html, body {
 	color: #eee; 
 	border-left: 1px solid white;
 }
+
+.game-content ul.bb_ul li ul.bb_ul li {
+	border-left: none;
+	padding: 2px 0;
+}
+
 
 .game-content ul.bb_ul li strong {
 	display:block; 
