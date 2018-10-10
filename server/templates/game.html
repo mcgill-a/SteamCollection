@@ -49,8 +49,8 @@
 						{% else %}
 							<h3>Free to Play</h3>
 						{% endif %}
-						<h3>Categories:</h3>
-						<ul>
+						<div class="section-title"><h2>CATEGORIES</h2></div><br />
+						<ul class="bb_ul">
 						{% for cat in value["categories"] %}
 							<li>
 								<a href="/category/{{ cat["description"] }}">{{ cat["description"] }}</a>
@@ -58,9 +58,9 @@
 						{% endfor %}
 						</ul>
 						{% if value["developers"]|length > 1 %}
-							<h3>Developers:</h3>
+							<div class="section-title"><h2>DEVELOPERS</h2></div><br />
 						{% else %}
-							<h3>Developer:</h3>
+							<div class="section-title"><h2>DEVELOPER</h2></div><br />
 						{% endif %}
 						<ul>
 							{% for dev in value["developers"] %}

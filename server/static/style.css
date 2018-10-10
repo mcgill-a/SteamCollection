@@ -229,6 +229,22 @@ html, body {
 	height: auto;
 }
 
+.game-content h1, .game-content .bb_tag {
+	color: white;
+	width: 100%;
+	text-align: center;
+	font-family: 'Poiret One', cursive;
+	font-size: 30px;
+	margin-bottom: 10px;
+}
+
+.game-content img {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 10px;
+}
+
 .game-content #slides {
 	margin-top: 30px;
 	margin-bottom: 30px;
@@ -236,10 +252,19 @@ html, body {
 
 .game-content .section-title {
 	width: 100%;
-	border-bottom: 2px solid white;
+	border-bottom: 2px  solid white;
 	font-family: 'Poiret One', cursive;
 	margin-bottom: 5px;
 }
+
+.game-content .section-tags {
+	margin-top: 20px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+
 /* .game-content .section-desc {
 	border-top: 2px solid white;
 	margin-top: 5px;
@@ -261,7 +286,6 @@ html, body {
 .game-content ul.bb_ul {
 
 }
-
 
 .game-content ul.bb_ul li {
 	padding:3px 10px;
@@ -288,8 +312,9 @@ a:hover {
 	text-decoration: underline !important;
 }
 
-.game-content a:link {
-	color: #bcbcbc;
+.game-content a:link, .game-content a:visited {
+	color: white;
+	font-weight: bold;
 }
 
 .game-content a:hover {
