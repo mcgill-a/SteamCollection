@@ -52,7 +52,11 @@
 							<h3>FREE TO PLAY</h3>
 						{% endif %}
 						</div>
-						<div class="section-title"><h2>CATEGORIES</h2></div><br />
+						{% if value["categories"]|length > 1 %}
+							<div class="section-title"><h2>CATEGORIES</h2></div><br />
+						{% else %}
+							<div class="section-title"><h2>CATEGORY</h2></div><br />
+						{% endif %}
 						<ul class="bb_ul">
 						{% for cat in value["categories"] %}
 							<li>
