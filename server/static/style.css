@@ -131,6 +131,12 @@ html, body {
 	color: white;
 }
 
+.page-title {
+	font-family: 'Poiret One', cursive;
+	text-align: center;
+	margin: 25px 0 15px 0;
+}
+
 .game-banner {
 	/*margin-top: -25px !important; */
 	width: 100%;
@@ -327,12 +333,9 @@ a:link, a:visited {
 	text-decoration: none;
 }
 
-a:hover {
-	text-decoration: underline !important;
-}
-
 .game-content a:link, .game-content a:visited {
 	color: white;
+	text-decoration: underline;
 	font-weight: bold;
 }
 
