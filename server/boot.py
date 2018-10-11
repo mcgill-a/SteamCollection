@@ -137,9 +137,18 @@ def genres():
 @app.route('/developers/<dev>')
 def developer(dev=None):
 	if dev is not None:
+		actual_name = "0"
 		games = load_developer_games(dev)
+		for index, game in enumerate(games):
+			name = next(iter(games[index]))
+			for current in game[name]["data"]["developers"]:
+				if dev.lower() == current.lower():
+					actual_name = current
+					break;
+			if actual_name != "0":
+				break;
 		dev = string.capwords(dev)
-		return render_template('developer.html', games=games, developer=dev)
+		return render_template('developer.html', games=games, developer=actual_name)
 	else:
 		return render_template('developer.html', developer=dev)
 
