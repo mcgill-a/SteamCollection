@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% set active_page = "games" %}
+{% block content %}
+<div class="games-bg">
+	<div class="banner container">
+		<h1>Developers</h1>
+		<input type="text" id="devTableSearch" onkeyup="devSearch()" placeholder="Search for a Developer..">
+		<table id="devTable">
+			<tr class="header">
+				<th style="width:90%;">Developer</th>
+				<th style="width:10%;">Games</th>
+			</tr>
+			{% for current in devs.iterkeys() %}
+				<tr>
+					<td><a href="/developers/{{current}}">{{ current }}</a></td>
+					<td>{{ devs[current] }}</td>
+				</tr>
+			{% endfor %}
+		</table>
+	</div>
+</div>
+{% endblock %}
+

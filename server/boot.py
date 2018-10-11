@@ -145,9 +145,21 @@ def developer(dev=None):
 
 @app.route('/developers/')
 def developers():
-	# List all the developers
-	return "developers"
+	devs = get_dev_info()
+	return render_template('developers.html', devs=devs)
 
+
+def get_dev_info():
+	data = {}
+	games = load_games()
+	for index, game in enumerate(games):
+		appid = next(iter(games[index]))
+		for dev in game[str(appid)]["data"]["developers"]:
+			if dev in data:
+				data[dev] += 1
+			else:
+				data[dev] = 1
+	return data
 
 @app.route('/categories/<cat>')
 def category(cat=None):

@@ -250,7 +250,7 @@ html, body {
 	margin-bottom: 30px;
 }
 
-.game-content .section-title {
+.section-title {
 	width: 100%;
 	border-bottom: 2px  solid white;
 	font-family: 'Poiret One', cursive;
@@ -339,3 +339,72 @@ a:hover {
 .game-content a:hover {
 	text-decoration: underline;
 }
+
+.dev {
+	width: 100%;
+	/* background: black; */
+	display: flex;
+	flex-direction: row;
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 20px;
+	line-height: 20px;
+	justify-content: center;
+}
+
+.dev .game-count {
+	min-width: 40px;
+	width: 60px;
+	text-align: center; 
+	/* background: lightblue; */
+	height: 100%;
+	border-right: 1px solid white;
+	border: 1px solid white;
+	margin-right: -1px;
+	padding-top: 6px;
+}
+
+.dev .name {
+	height: 100%;
+	/* background: lightgreen; */
+	width: 500px;
+	padding-left: 14px;
+	border: 1px solid white;
+	padding-top: 6px;
+}
+
+#devTableSearch {
+	background-image: url('https://i.imgur.com/uvPcYF2.png');
+	background-position: 10px 12px; /* Position the search icon */
+    background-repeat: no-repeat; /* Do not repeat the icon image */
+    width: 100%; /* Full-width */
+    font-size: 16px; /* Increase font-size */
+    padding: 12px 20px 12px 40px; /* Add some padding */
+    border: 1px solid #ddd; /* Add a grey border */
+    margin-bottom: 12px; /* Add some space below the input */
+}
+
+#devTable {
+    border-collapse: collapse; /* Collapse borders */
+    width: 100%; /* Full-width */
+    border: 1px solid #ddd; /* Add a grey border */
+    font-size: 18px; /* Increase font-size */
+}
+
+#devTable th, #devTable td {
+    text-align: left; /* Left-align text */
+    padding: 12px; /* Add padding */
+}
+
+#devTable tr {
+    /* Add a bottom border to all table rows */
+    border-bottom: 1px solid #ddd; 
+}
+
+#devTable tr.header, #devTable tr.header:hover {
+	background-color: lightblue;
+}
+#devTable tr:hover {
+    /* Add a grey background color to the table header and on hover */
+    background-color: #222;
+}
+
