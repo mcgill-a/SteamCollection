@@ -372,11 +372,21 @@ a:hover {
 	padding-top: 6px;
 }
 
+.custom-table {
+	/*
+	display: flex;
+	flex-direction: column;
+	justify-content: center; */
+	margin: 0 auto;
+	width: 80%;
+}
+
 #devTableSearch {
+	color: black;
 	background-image: url('https://i.imgur.com/uvPcYF2.png');
 	background-position: 10px 12px; /* Position the search icon */
     background-repeat: no-repeat; /* Do not repeat the icon image */
-    width: 100%; /* Full-width */
+    width: 100%;
     font-size: 16px; /* Increase font-size */
     padding: 12px 20px 12px 40px; /* Add some padding */
     border: 1px solid #ddd; /* Add a grey border */
@@ -385,7 +395,7 @@ a:hover {
 
 #devTable {
     border-collapse: collapse; /* Collapse borders */
-    width: 100%; /* Full-width */
+    width: 100%;
     border: 1px solid #ddd; /* Add a grey border */
     font-size: 18px; /* Increase font-size */
 }
@@ -393,6 +403,10 @@ a:hover {
 #devTable th, #devTable td {
     text-align: left; /* Left-align text */
     padding: 12px; /* Add padding */
+}
+
+#devTable tr td, #devTable th {
+	border-left: 1px solid white;
 }
 
 #devTable tr {
