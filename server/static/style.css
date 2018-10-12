@@ -168,58 +168,6 @@ html, body {
 	height: auto;
 }
 
-.landing {
-	position: absolute;
-	top: 12%;
-	left: 35%;
-	display: flex;
-	flex-direction: column;
-	width: 50%;
-	max-width: 600px;
-	text-align: right;
-}
-
-.main-title {
-	font-family: 'Ubuntu', sans-serif;
-	font-size: 50px;
-	color: white;
-	font-weight: bolder;
-}
-
-.sub-title {
-	font-family: 'Rubik', sans-serif;
-	font-size: 38px;
-	color: white;
-	font-weight: normal;	
-}
-
-.intro {
-	font-family: 'Rubik', sans-serif;
-	font-size: 20px;
-	color: white;
-	text-decoration: none;
-}
-
-.landing .btn {
-	font-family: 'Rubik', sans-serif;
-	font-size: 20px;
-	border-radius: 100px;
-	text-align: center;
-	height: 44px;
-	width: 150px;
-	color: white !important;
-	background: #202021;
-}
-
-.landing a:hover {
-	text-decoration: none !important;
-}
-
-.landing .btn:hover {
-	text-decoration: none;
-	background: black;
-}
-
 .banner {
 	margin-top: 10px;
 	color: white;
@@ -228,8 +176,7 @@ html, body {
 .pages {
 	font-size: 15px;
 	color: gray;
-	/*background-color: red; */
-	margin: 20px 0 -25px 0;
+	margin: 20px 0 -20px 0;
 }
 
 .pages a:link, .pages a:visited {
