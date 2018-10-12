@@ -5,10 +5,6 @@ import os, json, random, re, string
 app = Flask(__name__)
 bootstrap = Bootstrap(app)
 
-@app.route('/new')
-def new():
-	return render_template('new.html')
-
 @app.route('/')
 def index():
 	return render_template('index.html')

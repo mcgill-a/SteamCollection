@@ -1,8 +1,11 @@
 {% extends "base.html" %}
-{% set active_page = "games" %}
+{% set active_page = "developers" %}
 {% block content %}
 <div class="games-bg">
 	<div class="banner container">
+		<div class="pages">
+			<a href="/">Home</a> > <a href="/developers/">Developers</a>
+		</div>
 		<h1 class="page-title">Developers</h1>
 		<div class="custom-table">
 		<input type="text" id="devTableSearch" onkeyup="devSearch()" placeholder="Search for a Developer..">
