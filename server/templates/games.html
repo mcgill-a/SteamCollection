@@ -3,7 +3,10 @@
 {% block content %}
 <div class="games-bg">
 	<div class="banner container">
-		<h1>Games</h1>
+		<div class="pages">
+			<a href="/">Home</a> > <a href="/games/">Games</a>
+		</div>
+		<h1 class="page-title">Games</h1>
 	</div>
 	{% if games|length > 0 %}
 		<div class="game-list container">
