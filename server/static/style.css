@@ -131,6 +131,22 @@ html, body {
 	color: white;
 }
 
+.pages {
+	font-size: 15px;
+	color: gray;
+	/*background-color: red; */
+	margin: 20px 0 -25px 0;
+}
+
+.pages a:link, .pages a:visited {
+	color: gray;
+}
+
+.pages a:hover {
+	color: white;
+}
+
+
 .page-title {
 	font-family: 'Poiret One', cursive;
 	text-align: center;
