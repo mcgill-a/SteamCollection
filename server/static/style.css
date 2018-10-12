@@ -4,6 +4,11 @@ html, body {
 	min-width: 800px;
 }
 
+*:focus {
+	outline: 0;
+	outline: none;
+}
+
 .row {
 	display: flex;
 	margin-bottom: 15px;
