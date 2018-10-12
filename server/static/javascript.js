@@ -1,4 +1,3 @@
-
 function devSearch() {
   // Declare variables 
   var input, filter, table, tr, td, i;
@@ -19,3 +18,14 @@ function devSearch() {
     } 
   }
 }
+
+function scrollTo(element) {
+    window.scroll({
+        top: element.getBoundingClientRect().top + window.scrollY,
+        left: 0,
+        behavior: 'smooth'
+    });
+  }
+  document.getElementById("btn_discover").addEventListener('click', () => {
+    scrollTo(document.getElementById("discover"));
+  });
