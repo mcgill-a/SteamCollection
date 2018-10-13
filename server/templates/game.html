@@ -53,6 +53,18 @@
 							<h3>FREE TO PLAY</h3>
 						{% endif %}
 						</div>
+						{% if value["genres"]|length > 1 %}
+							<div class="section-title"><h2>GENRES</h2></div><br />
+						{% else %}
+							 <div class="section-title"><h2>GENRE</h2></div><br />
+						{% endif %}
+						<ul>
+							{% for genre in value["genres"] %}
+								<li>
+									<a href="/genres/{{genre["description"]}}">{{ genre["description"] }}</a>
+								</li>
+							{% endfor %}
+						</ul>
 						{% if value["categories"]|length > 1 %}
 							<div class="section-title"><h2>CATEGORIES</h2></div><br />
 						{% else %}

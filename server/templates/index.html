@@ -11,21 +11,26 @@
 		<div class="left">
 			<div id="banner-genres" class="home-content">
 				<div class="image-span" style="background-color: black;">
-					<h1>GENRES</h1>
+					<h1 class="shadow">GENRES</h1>
 				</div>
 			</div>
-			<div class="container">
-				<p> Some text here</p>
+			<div class="list">
+				{% for genre in genres %}
+					<a href="/genres/{{genre}}">{{ genre }}</a>
+				{% endfor %}
 			</div>
 		</div>
 		<div class="right">
 			<div id="banner-categories" class="home-content">
 				<div class="image-span" style="background-color: black;">
-					<h1>CATEGORIES</h1>
+					<h1 class="shadow">CATEGORIES</h1>
 				</div>
-			    <div class="container">
-					<p> Some text here</p>
-				</div>
+			</div>
+			<div class="list">
+				{% for category in categories %}
+					<a href="/categories/{{category}}">{{ category }}</a>
+				{% endfor %}
+			</div>
 			</div>
 		</div>
 	</div>

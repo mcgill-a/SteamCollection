@@ -7,7 +7,9 @@ bootstrap = Bootstrap(app)
 
 @app.route('/')
 def index():
-	return render_template('index.html')
+	genres = load_genres()
+	categories = load_categories()
+	return render_template('index.html', genres=genres, categories=categories)
 
 @app.route('/games/')
 def games():
@@ -58,6 +60,30 @@ def load_games():
 					count += 1
 	print "INFO: Game List Loaded | Count: " + str(count)
 	return games
+
+def load_genres():
+	games = load_games()
+	genres = []
+	for index, game in enumerate(games):
+		appid = next(iter(games[index]))
+		if "genres" in game[str(appid)]["data"]:
+			for genre in game[str(appid)]["data"]["genres"]:
+				if genre["description"] not in genres:
+					genres.append(genre["description"])
+	return genres
+
+
+def load_categories():
+	games = load_games()
+	categories = []
+	for index, game in enumerate(games):
+		appid = next(iter(games[index]))
+		if "categories" in game[str(appid)]["data"]:
+			for category in game[str(appid)]["data"]["categories"]:
+				if category["description"] not in categories:
+					categories.append(category["description"])
+	return categories
+
 
 def load_genre_games(genre_input):
 	games = load_games()
