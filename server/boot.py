@@ -9,26 +9,11 @@ bootstrap = Bootstrap(app)
 def index():
 	return render_template('index.html')
 
-@app.route('/test/<input>')
-def test(input=None):
-	data = {'input': input}
-	return render_template('index.html', data=data)
-
 @app.route('/games/')
 def games():
 	games = load_games()
 	random.shuffle(games)
 	return render_template('games.html', games=games)
-
-
-@app.route('/display/')
-def display():
-	filename = os.path.join(app.static_folder, 'data/ss-top100forever.json')
-	with open(filename) as data:
-		info = json.load(data, object_pairs_hook=OrderedDict)
-		return render_template('display-all.html', info=info)
-	return "Failed to json load data"
-
 
 def remove_html_tags(input):
 	expr = re.compile('<.*?>')
@@ -237,6 +222,38 @@ def search():
 		if valid:
 			matched.append(game)
 	return render_template('search.html', games=matched)
+
+@app.route('/api/')
+def api():
+	return render_template('api.html') 
+
+@app.route('/api/games/')
+def api_games():
+	games = load_games()
+	return jsonify(games)
+
+@app.route('/api/games/<appid>')
+def api_game(appid=None):
+	if (appid is not None):
+		filename = "data/steam-api/" + appid + ".json"
+		full_path = os.path.join(app.static_folder, filename)
+		if (os.path.exists(str(full_path))):
+			with open(full_path) as data:
+				game = json.load(data)
+				game_name = game[appid]["data"]["name"]
+				# If there is a short decription then use it instead of longer description
+				if len(game[appid]["data"]["short_description"]) > 40:
+					desc = remove_html_tags(game[appid]["data"]["short_description"])[:300]
+				else:
+					desc = remove_html_tags(game[appid]["data"]["about_the_game"])[:300]
+					# Get all complete sentences from the description
+					desc = desc.rsplit('.',1)[0] + "."	
+			return jsonify(game)
+		else:
+			output = {appid:({'success':False})}
+			return jsonify(output)
+	else:
+		return jsonify('null')
 
 if __name__ == '__main__':
 	app.run(host='0.0.0.0', debug=True)
