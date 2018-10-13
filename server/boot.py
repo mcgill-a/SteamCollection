@@ -225,7 +225,7 @@ def search():
 					valid = False
 					break
 			elif key == "category":
-				categoryFound == False
+				categoryFound = False
 				for category in game[str(appid)]["data"]["categories"]:
 					categoryFound == False
 					if category["description"].lower() == value:
