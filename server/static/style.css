@@ -124,7 +124,7 @@ html, body {
 #discover {
 	display: flex;
 	width: 100%;
-	background: black;
+	background: #0a0a0a;
 }
 
 #discover .left {

@@ -58,7 +58,6 @@ def load_games():
 				if info[name]["success"] == True:
 					games.append(info)
 					count += 1
-	print "INFO: Game List Loaded | Count: " + str(count)
 	return games
 
 def load_genres():
