@@ -1,5 +1,5 @@
 from collections import OrderedDict
-from flask import Flask, render_template, url_for, jsonify
+from flask import Flask, render_template, url_for, jsonify, request
 from flask_bootstrap import Bootstrap
 import os, json, random, re, string
 app = Flask(__name__)
@@ -188,6 +188,54 @@ def category(cat=None):
 def categories():
 	# List all categories
 	return "categories"
+
+@app.route('/search/')
+def search():
+	args = request.args.to_dict()
+	query = {}
+	for key, value in args.iteritems():
+		query[key.lower()] = value
+
+	matched = []
+	games = load_games()
+	for index, game in enumerate(games):
+		valid = True
+		appid = next(iter(games[index]))
+		for key, value in query.iteritems():
+			value = value.lower()
+			if key == "name":
+				if game[str(appid)]["data"]["name"].lower() != value:
+					valid = False
+					break;
+			elif key == "developer":
+				devFound = False
+				for dev in game[str(appid)]["data"]["developers"]:
+					if dev.lower() == value:
+						devFound = True
+				if devFound == False:
+					valid = False
+					break
+			elif key == "genre":
+				genreFound = False
+				if "genres" in game[str(appid)]["data"]:
+					for genre in game[str(appid)]["data"]["genres"]:
+						if genre["description"].lower() == value:
+							genreFound = True
+				if genreFound == False:
+					valid = False
+					break
+			elif key == "category":
+				categoryFound == False
+				for category in game[str(appid)]["data"]["categories"]:
+					categoryFound == False
+					if category["description"].lower() == value:
+						categoryFound = True
+					if categoryFound == False:
+						valid = False
+						break
+		if valid:
+			matched.append(game)
+	return render_template('search.html', games=matched)
 
 if __name__ == '__main__':
 	app.run(host='0.0.0.0', debug=True)
