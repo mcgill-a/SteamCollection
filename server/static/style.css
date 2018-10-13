@@ -476,6 +476,20 @@ a:link, a:visited {
 	width: 80%;
 }
 
+.controls {
+	display: flex;
+	flex-direction: row-reverse;
+}
+.table-btns {
+	margin: 10px 5px;
+	padding: 5px 10px;
+	display: inline-block;
+	background: #202021;
+	border-radius: 10px;
+	border: 2px solid white;
+	color: white;
+}
+
 #devTableSearch {
 	color: black;
 	background-image: url('https://i.imgur.com/uvPcYF2.png');

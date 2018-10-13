@@ -9,7 +9,10 @@
 		</div>
 		<h1 class="page-title">Developers</h1>
 		<div class="custom-table">
-		<p><button onclick="sortTable()">Sort Alphabetical</button></p>		
+		<div class="controls">
+			<button class="table-btns" onclick="sortTable()">Sort Alphabetically</button>		
+			<button class="table-btns" onclick="sortByCount()">Sort by Count</button>
+		</div>
 		<input type="text" id="devTableSearch" onkeyup="devSearch()" placeholder="Search for a Developer..">
 		<table id="devTable">
 			<tr class="header">
