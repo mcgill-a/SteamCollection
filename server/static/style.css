@@ -72,7 +72,7 @@ html, body {
 }
 
 .graphic {
-	background: url("https://i.imgur.com/o3wJCen.jpg");
+	background: url("resources/stairs.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: no-repeat;
@@ -124,6 +124,7 @@ html, body {
 #discover {
 	display: flex;
 	width: 100%;
+	background: black;
 }
 
 #discover .left {
@@ -143,19 +144,56 @@ html, body {
 	align-items: center;
 	justify-content: center;
 	height: 250px;
+	background: url("resources/wall.jpg") no-repeat center;
+	background-size: cover;
+	border-bottom: 2px solid white;
+}
+
+.shadow {
+	color: #fff;
+	letter-spacing: .05em;
+	text-shadow: 
+		4px 4px 0px #191919, 
+		7px 7px 0px rgba(0, 0, 0, 0.3);
 }
 
 #discover .image-span h1 {
 	color: white;
 	font-family: 'Poiret One', cursive;
 	font-weight: bolder;
-	font-size: 50px;
+	font-size: 70px;
 }
 
 #discover .image-span h2 {
 	color: white;
 }
 
+#discover .list {
+	padding: 10px;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	color: white;
+	font-family: 'Ubuntu', cursive;
+	font-weight: bold;
+}
+
+#discover .list a {
+	font-size: 18px;
+	color: white;
+	border: 2px solid white;
+	padding: 2px;
+	margin: 3px 3px;
+	text-align: center;
+	width: 48%;
+}
+
+#discover .list a:link, #discover .list a:visited {
+	color: white;
+}
 .bg {
 	margin-top: -40px;
 	background: linear-gradient(rgba(0,0,0,.1), rgba(0,0,0,0.3)),url("resources/home.jpg");
