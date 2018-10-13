@@ -228,9 +228,10 @@ def search():
 				categoryFound = False
 				for category in game[str(appid)]["data"]["categories"]:
 					categoryFound == False
+					print category["description"].lower(), value
 					if category["description"].lower() == value:
 						categoryFound = True
-					if categoryFound == False:
+				if categoryFound == False:
 						valid = False
 						break
 		if valid:

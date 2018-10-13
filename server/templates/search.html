@@ -4,7 +4,7 @@
 {% block content %}
 <div class="games-bg">
 	<div class="banner container">
-		<h1>Search Results Found:</h1>
+		<h1>Search Results Found: ({{ games|length }})</h1>
 	</div>
 	{% if games|length > 0 %}
 		<div class="game-list container">
