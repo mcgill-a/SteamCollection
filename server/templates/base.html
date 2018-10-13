@@ -1,5 +1,9 @@
 {%- extends "bootstrap/base.html" %}
-{% block title %}Alex{% endblock %}
+
+{% set page_title = page_title|default('Steam Collection') -%}
+{% block title %}
+	{{ page_title}}
+{% endblock %}
 {% import "bootstrap/fixes.html" as fixes %}
 
 {% block head %}

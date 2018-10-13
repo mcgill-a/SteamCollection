@@ -39,12 +39,14 @@ def remove_html_tags(input):
 @app.route('/games/<appid>')
 def game(appid=None):
 	desc = "";
+	game_name = ""
 	if (appid is not None):
 		filename = "data/steam-api/" + appid + ".json"
 		full_path = os.path.join(app.static_folder, filename)
         if (os.path.exists(str(full_path))):
 			with open(full_path) as data:
 				game = json.load(data)
+				game_name = game[appid]["data"]["name"]
 				# If there is a short decription then use it instead of longer description
 				if len(game[appid]["data"]["short_description"]) > 40:
 					desc = remove_html_tags(game[appid]["data"]["short_description"])[:300]
@@ -52,7 +54,7 @@ def game(appid=None):
 					desc = remove_html_tags(game[appid]["data"]["about_the_game"])[:300]
 					# Get all complete sentences from the description
 					desc = desc.rsplit('.',1)[0] + "."
-				return render_template('game.html', game=game, desc=desc)
+				return render_template('game.html', game=game, game_name=game_name,  desc=desc)
 	return render_template('game.html', app=None)
 	
 def load_games():
@@ -137,17 +139,20 @@ def genres():
 @app.route('/developers/<dev>')
 def developer(dev=None):
 	if dev is not None:
-		actual_name = "0"
+		actual_name = ""
+		found = False
 		games = load_developer_games(dev)
 		for index, game in enumerate(games):
 			name = next(iter(games[index]))
 			for current in game[name]["data"]["developers"]:
 				if dev.lower() == current.lower():
+					found = True
 					actual_name = current
 					break;
-			if actual_name != "0":
+			if found:
 				break;
 		dev = string.capwords(dev)
+	if found:
 		return render_template('developer.html', games=games, developer=actual_name)
 	else:
 		return render_template('developer.html', developer=dev)
