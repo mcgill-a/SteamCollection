@@ -12,8 +12,13 @@ def index(discover=None):
 	return render_template('index.html', genres=genres, categories=categories)
 
 @app.errorhandler(404)
-def page_not_found(e):
-	return render_template('error.html')
+def error_400(e):
+	return render_template('error.html', error=404), 404
+
+
+@app.errorhandler(500)
+def error_500(e):
+	return render_template('error.html', error=500), 500
 
 @app.route('/games/')
 def games():
