@@ -7,9 +7,23 @@
 <body>
 This is an API for Steam Collection. It accepts GET requests and returns data in JSON arrays<br /><br />
 
--- Example Usage --<br /><br />
 
-> http://set09103.napier.ac.uk:9154/api/games/ -- returns json data for all games<br />
-> http://set09103.napier.ac.uk:9154/api/games/730 -- returns json data for game with appid '730'
+-- Parameters --<br /> <br />
+
+> appid<br />
+> name<br />
+> genre<br />
+> developer<br />
+> category<br />
+
+<br />
+
+You can use multiple parameters by seperating them with the '&' symbol as shown below
+
+<br /><br />-- Example Usage --<br /><br />
+
+> http://set09103.napier.ac.uk:9154/api/request/ -- returns data for all games<br />
+> http://set09103.napier.ac.uk:9154/api/request/?appid=730 -- returns data for game with appid '730'<br />
+> http://set09103.napier.ac.uk:9154/api/search/?developer=valve&genre=action -- returns data for games developed by Valve and include the genre Action
 </body>
 </html>

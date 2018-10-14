@@ -205,6 +205,11 @@ def categories():
 @app.route('/search/')
 def search():
 	args = request.args.to_dict()
+	matched = lookup(args)
+	return render_template('search.html', games=matched)
+
+
+def lookup(args):
 	query = {}
 	for key, value in args.iteritems():
 		query[key.lower()] = value
@@ -216,7 +221,11 @@ def search():
 		appid = next(iter(games[index]))
 		for key, value in query.iteritems():
 			value = value.lower()
-			if key == "name":
+			if key == "appid":
+				if value != appid:
+					valid = False
+					break;
+			elif key == "name":
 				if value not in game[str(appid)]["data"]["name"].lower():
 					valid = False
 					break;
@@ -246,18 +255,25 @@ def search():
 				if categoryFound == False:
 						valid = False
 						break
+			else:
+				valid = False
 		if valid:
 			matched.append(game)
-	return render_template('search.html', games=matched)
+	return matched
 
 @app.route('/api/')
 def api():
 	return render_template('api.html') 
 
-@app.route('/api/games/')
-def api_games():
-	games = load_games()
-	return jsonify(games)
+@app.route('/api/request/')
+def api_search():
+	args = request.args.to_dict()
+	matched = lookup(args)
+	
+	if len(matched) > 0:
+		return jsonify(matched)
+	else:
+		return jsonify('null')
 
 @app.route('/api/games/<appid>')
 def api_game(appid=None):
