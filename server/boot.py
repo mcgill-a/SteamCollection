@@ -1,7 +1,8 @@
 from collections import OrderedDict
 from flask import Flask, render_template, url_for, jsonify, request, redirect
 from flask_bootstrap import Bootstrap
-import ConfigParser, os, json, random, re, string
+import ConfigParser, logging, os, json, random, re, string
+from logging.handlers import RotatingFileHandler
 app = Flask(__name__)
 bootstrap = Bootstrap(app)
 
@@ -138,8 +139,6 @@ def load_developer_games(dev):
 						if current.lower() == dev.lower():
 							games.append(info)
 							count += 1
-	if count > 0:
-		print "INFO: Developer Game List Loaded | " + dev + " | Count: " + str(count)
 	return games
 
 
@@ -275,7 +274,7 @@ def api():
 def api_search():
 	args = request.args.to_dict()
 	matched = lookup(args)
-	
+	app.logger.info("IP | " + request.remote_addr + " | API-REQUEST | " + str(request.query_string))
 	if len(matched) > 0:
 		return jsonify(matched)
 	else:
@@ -317,8 +316,18 @@ def init(app):
 	except:
 		print "Could not read configs from: ", config_location
 
+def logs(app):
+	log_pathname = app.config['log_location'] + app.config['log_file']
+	file_handler = RotatingFileHandler(log_pathname, maxBytes=(1024 * 1024 * 10), backupCount=1024)
+	file_handler.setLevel(app.config['log_level'])
+	formatter = logging.Formatter("%(levelname)s | %s(astime)s | %(module)s | %(funcName)s | %(message)s")
+	file_handler.setFormatter(formatter)
+	app.logger.setLevel(app.config['log_level'])
+	app.logger.addHandler(file_handler)
+
 if __name__ == '__main__':
 	init(app)
+	logs(app)
 	app.run(
 		host=app.config['ip_address'],
 		port=int(app.config['port']))
