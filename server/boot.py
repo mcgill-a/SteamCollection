@@ -1,7 +1,7 @@
 from collections import OrderedDict
 from flask import Flask, render_template, url_for, jsonify, request, redirect
 from flask_bootstrap import Bootstrap
-import os, json, random, re, string
+import ConfigParser, os, json, random, re, string
 app = Flask(__name__)
 bootstrap = Bootstrap(app)
 
@@ -304,5 +304,21 @@ def api_game(appid=None):
 	else:
 		return jsonify('null')
 
+def init(app):
+	config = ConfigParser.ConfigParser()
+	try:
+		config_location = "etc/defaults.cfg"
+		config.read(config_location)
+		
+		app.config['DEBUG'] = config.get("config", "debug")
+		app.config['ip_address'] = config.get("config", "ip_address")
+		app.config['port'] = config.get("config", "port")
+		app.config['url'] = config.get("config", "url")
+	except:
+		print "Could not read configs from: ", config_location
+
 if __name__ == '__main__':
-	app.run(host='0.0.0.0', debug=True)
+	init(app)
+	app.run(
+		host=app.config['ip_address'],
+		port=int(app.config['port']))
