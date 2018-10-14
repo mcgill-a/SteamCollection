@@ -13,12 +13,14 @@ def index(discover=None):
 
 @app.errorhandler(404)
 def error_400(e):
-	return render_template('error.html', error=404), 404
+	previous = request.referrer
+	return render_template('error.html', error=404, previous=previous), 404
 
 
 @app.errorhandler(500)
 def error_500(e):
-	return render_template('error.html', error=500), 500
+	previous = request.referrer
+	return render_template('error.html', error=500, previous=previous), 500
 
 @app.route('/games/')
 def games():

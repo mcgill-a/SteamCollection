@@ -7,7 +7,6 @@
 		<div class="pages">
 			<a href="/genres/">Genres</a> > <a href="/genres/{{ genre }}">{{ genre }}</a>
 		</div>
-
 		<h1 class="page-title">{{ genre }}</h1>
 	</div>
 	{% if games|length > 0 %}
@@ -35,9 +34,9 @@
 				{% endif %}
 			{% endfor %}
 			</div>
-		</div>
 	{% else %}
-		<p>No data provided</p>
+		<h3 class="container" style="color: white;">0 games found for the selected genre</h3>
+	</div>
 	{% endif %}
 </div>
 {% endblock %}
