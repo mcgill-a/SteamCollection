@@ -9,6 +9,12 @@ html, body {
 	outline: none;
 }
 
+.api {
+	margin: 25px;
+	font-family: Monospace;
+	font-size: 13px;
+}
+
 .row {
 	display: flex;
 	margin-bottom: 15px;

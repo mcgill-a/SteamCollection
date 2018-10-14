@@ -1,15 +1,19 @@
 from collections import OrderedDict
-from flask import Flask, render_template, url_for, jsonify, request
+from flask import Flask, render_template, url_for, jsonify, request, redirect
 from flask_bootstrap import Bootstrap
 import os, json, random, re, string
 app = Flask(__name__)
 bootstrap = Bootstrap(app)
 
 @app.route('/')
-def index():
+def index(discover=None):
 	genres = load_genres()
 	categories = load_categories()
 	return render_template('index.html', genres=genres, categories=categories)
+
+@app.errorhandler(404)
+def page_not_found(e):
+	return render_template('error.html')
 
 @app.route('/games/')
 def games():
@@ -43,8 +47,6 @@ def game(appid=None):
 					desc = desc.rsplit('.',1)[0] + "."
 				return render_template('game.html', game=game, game_name=game_name,  desc=desc)
 	return render_template('game.html', app=None)
-
-
 
 	
 def load_games():
@@ -143,10 +145,11 @@ def genre(genre=None):
 	else:
 		return render_template('genre.html', genre=genre)
 
+@app.route('/categories')
 @app.route('/genres/')
 def genres():
-	# List all genres
-	return "genres"
+	# Redirect to the discover section on the home page 
+	return redirect('/#discover', code=302)
 
 
 @app.route('/developers/<dev>')
@@ -197,10 +200,6 @@ def category(cat=None):
 	else:
 		return render_template('category.html', category=cat)
 
-@app.route('/categories/')
-def categories():
-	# List all categories
-	return "categories"
 
 @app.route('/search/')
 def search():
