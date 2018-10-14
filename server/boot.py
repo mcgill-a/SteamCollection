@@ -43,6 +43,9 @@ def game(appid=None):
 					desc = desc.rsplit('.',1)[0] + "."
 				return render_template('game.html', game=game, game_name=game_name,  desc=desc)
 	return render_template('game.html', app=None)
+
+
+
 	
 def load_games():
 	games = []
@@ -214,13 +217,13 @@ def search():
 		for key, value in query.iteritems():
 			value = value.lower()
 			if key == "name":
-				if game[str(appid)]["data"]["name"].lower() != value:
+				if value not in game[str(appid)]["data"]["name"].lower():
 					valid = False
 					break;
 			elif key == "developer":
 				devFound = False
 				for dev in game[str(appid)]["data"]["developers"]:
-					if dev.lower() == value:
+					if value in dev.lower():
 						devFound = True
 				if devFound == False:
 					valid = False
@@ -229,7 +232,7 @@ def search():
 				genreFound = False
 				if "genres" in game[str(appid)]["data"]:
 					for genre in game[str(appid)]["data"]["genres"]:
-						if genre["description"].lower() == value:
+						if value in genre["description"].lower():
 							genreFound = True
 				if genreFound == False:
 					valid = False
@@ -238,8 +241,7 @@ def search():
 				categoryFound = False
 				for category in game[str(appid)]["data"]["categories"]:
 					categoryFound == False
-					print category["description"].lower(), value
-					if category["description"].lower() == value:
+					if value in category["description"].lower():
 						categoryFound = True
 				if categoryFound == False:
 						valid = False
