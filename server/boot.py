@@ -173,7 +173,6 @@ def developer(dev=None):
 					break;
 			if found:
 				break;
-		dev = string.capwords(dev)
 	if found:
 		return render_template('developer.html', games=games, developer=actual_name)
 	else:
@@ -200,9 +199,19 @@ def get_dev_info():
 @app.route('/categories/<cat>')
 def category(cat=None):
 	if cat is not None:
+		actual_name = ""
+		found = False
 		games = load_category_games(cat)
-		cat = string.capwords(cat)
-		return render_template('category.html', games=games, category=cat)
+		for index, game, in enumerate(games):
+			name = next(iter(games[index]))
+			for current in game[name]["data"]["categories"]:
+				if current["description"].lower() == cat.lower():
+					found = True
+					actual_name = current["description"]
+					break
+				if found:
+					break
+		return render_template('category.html', games=games, category=actual_name)
 	else:
 		return render_template('category.html', category=cat)
 
