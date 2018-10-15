@@ -211,8 +211,10 @@ def category(cat=None):
 def search():
 	args = request.args.to_dict()
 	matched = lookup(args)
-	return render_template('search.html', games=matched)
-
+	if len(args) > 0:
+		return render_template('search-results.html', games=matched)
+	else:
+		return render_template('search.html')
 
 def lookup(args):
 	query = {}

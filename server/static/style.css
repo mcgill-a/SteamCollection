@@ -571,3 +571,30 @@ a:link, a:visited {
     background-color: #222;
 }
 
+.search-form {
+	width: 100%;
+	padding: 15px;
+	background: lightblue;
+	font-size: 15px;
+}
+
+.search-form .form-row {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.search-form .form-row .form-heading {
+	width: 120px;
+	text-align: right;
+	margin-right: 10px;
+}
+
+.search-form .form-row .form-input {
+	color: black;
+	width: 200px;
+	background: lightgreen;
+}
+
+
+

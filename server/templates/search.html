@@ -1,39 +1,55 @@
 {% extends "base.html" %}
 {% set page_title = "Search" %}
-{% set active_page = "games" %}
+{% set active_page = "search" %}
 {% block content %}
 <div class="games-bg">
 	<div class="banner container">
-	{% if games|length > 0 %}
-		<h1 class="page-title">Search Results Found: ({{ games|length }})</h1>
-		<div class="game-list container">
-			<div class="row row-eq-height equal">
-			{% for game in games %}
-				{% for obj in game.iterkeys() %}
-					{% for key, value in game[obj].items() %}
-						{% if key == 'data' %}
-							{# -- GAME DATA ACCESSIBLE FROM HERE (value[field]) #}
-							{% set link = value["steam_appid"] %} 
-							<div class="col-sm-4">
-								<div class="game">
-									<a href="/games/{{ link }}">
-										<img src={{ value["header_image"] }}>
-									</a>
-								</div>
-							</div>
-						{% endif %}
-					{% endfor %}
-				{% endfor %}
-				{% if loop.index % 3 == 0 %}
-					</div>
-					<div class="row row-eq-height-equal">
-				{% endif %}
-			{% endfor %}
+		<h1 class="page-title">Search</h1>
+		<form onsubmit="return search();" class="search-form">
+			<div class="form-row">
+				<div class="form-heading">
+					<h3>App ID</h3>
+				</div>
+				<div class="form-input">
+					<textarea class="form-text" name="appid" cols="20"></textarea>
+				</div>
 			</div>
-	{% else %}
-		<h1 class="page-title">No Search Results Found</h1>
-	</div>
-	{% endif %}
+			<div class="form-row">
+                <div class="form-heading">
+                    <h3>Name</h3>
+                </div>
+                <div class="form-input">
+                    <textarea class="form-text" name="name" cols="50"></textarea>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-heading">
+                    <h3>Genre</h3>
+                </div>
+                <div class="form-input">
+                    <textarea class="form-text" name="genre" cols="50"></textarea>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-heading">
+                    <h3>Developer</h3>
+                </div>
+                <div class="form-input">
+                    <textarea class="form-text" name="developer" cols="60"></textarea>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-heading">
+                    <h3>Category</h3>
+                </div>
+                <div class="form-input">
+                    <textarea class="form-text" name="category", cols="50"></textarea>
+                </div>
+            </div>
+			<div class="form-submit">
+				<input type="submit" value="Search">
+			</div>
+		</form>
 	</div>
 </div>
 {% endblock %}
