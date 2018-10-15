@@ -630,10 +630,19 @@ a:link, a:visited {
 }
 
 .search-form .form-submit {
-	margin-top: 5px;
+	margin-top: 10px;
 	color: black;
 	display: flex;
 	justify-content: space-evenly;
+}
+
+.search-form .from-submit a {
+	width: 45% !important;
+}
+
+.search-form .form-submit a input {
+	padding: 6px 12px !important;
+	width: 111%;
 }
 .search-form .form-submit input {
 	width: 45%;

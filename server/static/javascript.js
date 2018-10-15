@@ -122,5 +122,4 @@ function resetSearchForm() {
     document.getElementById('txt-genre').value = "";
     document.getElementById('txt-developer').value = "";
     document.getElementById('txt-category').value = "";
-
 }  

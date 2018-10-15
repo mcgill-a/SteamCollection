@@ -8,14 +8,6 @@
 	<div class="search">
 		<form onsubmit="return search();" class="search-form">
 			<div class="form-row">
-				<div class="form-heading">
-					<input id="chk-appid" type="checkbox" onchange="toggleDisabled(this.checked, 'txt-appid')"/>
-				</div>
-				<div class="form-input">
-					<input type="text" id="txt-appid" placeholder="App ID.." disabled class="form-text" name="appid"  size="17">
-				</div>
-			</div>
-			<div class="form-row">
                 <div class="form-heading">
                     <input id="chk-name" type="checkbox" onchange="toggleDisabled(this.checked, 'txt-name')"/>
                 </div>
@@ -47,8 +39,17 @@
                     <input type="text" id="txt-category" placeholder="Category.." disabled class="form-text" name="category" size="17"/>
                 </div>
             </div>
+			<div class="form-row">
+				<div class="form-heading">
+					<input id="chk-appid" type="checkbox" onchange="toggleDisabled(this.checked, 'txt-appid')"/>
+				</div>
+				<div class="form-input">
+					<input type="text" id="txt-appid" placeholder="App ID.." disabled class="form-text" name="appid"  size="17">
+				</div>
+			</div>
 			<div class="form-submit">
-				<input class="btn btn-warning" type="button" value="Reset" onclick="resetSearchForm()"/>
+				<a href="/search/"><input class="btn btn-warning" type="button" value="Reset"/></a>
+				{#<input class="btn btn-warning" type="button" value="Reset" onclick="resetSearchForm()"/>#}
 				<input class="btn btn-primary" type="submit" value="Search">
 			</div>
 		</form>
@@ -93,5 +94,44 @@
 </div>
 </div>
 </div>
+
+<script>
+	
+	function getValueByName(value) {
+		value = value.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+		var regex = new RegExp("[\\?&]" + value + "=([^&#]*)"),
+        results = regex.exec(location.search);
+		return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+	}
+
+	document.getElementById('txt-name').value = getValueByName('name');
+	document.getElementById('txt-genre').value = getValueByName('genre');
+	document.getElementById('txt-developer').value = getValueByName('developer');
+	document.getElementById('txt-category').value = getValueByName('category');
+	document.getElementById('txt-appid').value = getValueByName('appid');
+
+	if (document.getElementById('txt-name').value != "")
+	{
+		document.getElementById('chk-name').checked = true;
+	}
+	if (document.getElementById('txt-genre').value != "")
+    {
+        document.getElementById('chk-genre').checked = true;
+    }
+	if (document.getElementById('txt-developer').value != "")
+    {
+        document.getElementById('chk-developer').checked = true;
+    }
+	if (document.getElementById('txt-category').value != "")
+    {
+        document.getElementById('chk-category').checked = true;
+    }
+	if (document.getElementById('txt-appid').value != "")
+    {
+        document.getElementById('chk-appid').checked = true;
+    }
+
+		
+</script>
 {% endblock %}
 
