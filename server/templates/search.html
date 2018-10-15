@@ -6,14 +6,13 @@
 <div class="container">
 	<div class="split">
 	<div class="search">
-		{#<h1 class="page-title">Search</h1>#}
 		<form onsubmit="return search();" class="search-form">
 			<div class="form-row">
 				<div class="form-heading">
 					<input id="chk-appid" type="checkbox" onchange="toggleDisabled(this.checked, 'txt-appid')"/>
 				</div>
 				<div class="form-input">
-					<textarea id="txt-appid" placeholder="App ID.." disabled class="form-text" name="appid"  rows="1" cols="18"></textarea>
+					<input type="text" id="txt-appid" placeholder="App ID.." disabled class="form-text" name="appid"  size="17">
 				</div>
 			</div>
 			<div class="form-row">
@@ -21,7 +20,7 @@
                     <input id="chk-name" type="checkbox" onchange="toggleDisabled(this.checked, 'txt-name')"/>
                 </div>
                 <div class="form-input">
-                    <textarea id="txt-name" placeholder="Name.." disabled class="form-text" name="name" rows="1" cols="18"></textarea>
+                    <input type="text" id="txt-name" placeholder="Name.." disabled class="form-text" name="name" size="17">
                 </div>
             </div>
             <div class="form-row">
@@ -29,7 +28,7 @@
 					<input id="chk-genre" type="checkbox" onchange="toggleDisabled(this.checked, 'txt-genre')"/>
                 </div>
                 <div class="form-input">
-                    <textarea id="txt-genre" placeholder="Genre.." disabled class="form-text" name="genre" rows="1" cols="18"></textarea>
+                    <input type="text" id="txt-genre" placeholder="Genre.." disabled class="form-text" name="genre" size="17"/>
                 </div>
             </div>
             <div class="form-row">
@@ -37,7 +36,7 @@
 					<input id="chk-developer" type="checkbox" onchange="toggleDisabled(this.checked, 'txt-developer')"/>
                 </div>
                 <div class="form-input">
-                    <textarea id="txt-developer" placeholder="Developer.." disabled class="form-text" name="developer" rows="1" cols="18"></textarea>
+                    <input type="text" id="txt-developer" placeholder="Developer.." disabled class="form-text" name="developer" size="17">
                 </div>
             </div>
             <div class="form-row">
@@ -45,12 +44,12 @@
 					<input id="chk-category" type="checkbox" onchange="toggleDisabled(this.checked, 'txt-category')"/>
                 </div>
                 <div class="form-input">
-                    <textarea id="txt-category" placeholder="Category.." disabled class="form-text" name="category" rows="1"cols="18"></textarea>
+                    <input type="text" id="txt-category" placeholder="Category.." disabled class="form-text" name="category" size="17"/>
                 </div>
             </div>
 			<div class="form-submit">
 				<input class="btn btn-warning" type="button" value="Reset" onclick="resetSearchForm()"/>
-				<input class="btn btn-success" type="submit" value="Search">
+				<input class="btn btn-primary" type="submit" value="Search">
 			</div>
 		</form>
 	</div>

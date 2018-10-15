@@ -8,9 +8,7 @@ bootstrap = Bootstrap(app)
 
 @app.route('/')
 def index(discover=None):
-	genres = load_genres()
-	categories = load_categories()
-	return render_template('index.html', genres=genres, categories=categories)
+	return render_template('index.html')
 
 @app.errorhandler(404)
 def error_400(e):
@@ -143,19 +141,15 @@ def load_developer_games(dev):
 
 
 @app.route('/genres/<genre>')
+@app.route('/genres/')
 def genre(genre=None):
 	if (genre is not None):
 		games = load_genre_games(genre)
 		genre = string.capwords(genre)
 		return render_template('genre.html', games=games, genre=genre)
 	else:
-		return render_template('genre.html', genre=genre)
-
-@app.route('/categories')
-@app.route('/genres/')
-def genres():
-	# Redirect to the discover section on the home page 
-	return redirect('/#discover', code=302)
+		genres = load_genres()
+		return render_template('genres.html', genres=genres)
 
 
 @app.route('/developers/<dev>')
@@ -196,7 +190,9 @@ def get_dev_info():
 				data[dev] = 1
 	return data
 
+
 @app.route('/categories/<cat>')
+@app.route('/categories/')
 def category(cat=None):
 	if cat is not None:
 		actual_name = ""
@@ -213,7 +209,8 @@ def category(cat=None):
 					break
 		return render_template('category.html', games=games, category=actual_name)
 	else:
-		return render_template('category.html', category=cat)
+		categories = load_categories()
+		return render_template('categories.html', categories=categories)
 
 
 @app.route('/search/')
