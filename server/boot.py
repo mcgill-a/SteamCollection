@@ -217,12 +217,12 @@ def category(cat=None):
 def search():
 	args = request.args.to_dict()
 	filtered = {}
-	# Filter out any parameters with no value
 	for key, value in args.iteritems():
 		if value:
 			filtered[key] = value
-	if len(filtered) > 0:
-		matched= lookup(filtered)
+			print key, value
+	matched = lookup(filtered)
+	if len(filtered) > 0 and len(matched) > 0:
 		return render_template('search.html', games=matched, empty_search=False)
 	else:
 		# Use normal game load method as it processes data faster than lookup (search method)
@@ -232,8 +232,8 @@ def search():
 def lookup(args):
 	query = {}
 	for key, value in args.iteritems():
-		query[key.lower()] = value
-
+		if value:
+			query[key.lower()] = value
 	matched = []
 	games = load_games()
 	for index, game in enumerate(games):
