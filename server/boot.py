@@ -210,11 +210,13 @@ def category(cat=None):
 @app.route('/search/')
 def search():
 	args = request.args.to_dict()
-	matched = lookup(args)
 	if len(args) > 0:
-		return render_template('search-results.html', games=matched)
+		matched= lookup(args)
+		return render_template('search.html', games=matched, empty_search=False)
 	else:
-		return render_template('search.html')
+		# Use normal game load method as it processes data faster than lookup (search method)
+		matched = load_games()
+		return render_template('search.html', games=matched, empty_search=True)
 
 def lookup(args):
 	query = {}

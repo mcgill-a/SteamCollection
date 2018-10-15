@@ -86,4 +86,41 @@ function sortByCount() {
       switching = true;
     }
   }
+}
+
+function toggleDisabled(_checked, id) {
+	if (_checked)
+	{
+		document.getElementById(id).removeAttribute('disabled')
+		document.getElementById(id).disabled = false;
+		document.getElementById(id).style.background = 'white';
+	}
+	else
+	{
+		document.getElementById(id).value = "";
+		document.getElementById(id).disabled = true;
+		document.getElementById(id).style.background = '#b5b5b5';
+	}
+}
+
+function resetSearchForm() {
+
+	document.getElementById('txt-appid').style.background = '#b5b5b5';
+    document.getElementById('txt-name').style.background = '#b5b5b5';
+    document.getElementById('txt-genre').style.background = '#b5b5b5';
+    document.getElementById('txt-developer').style.background = '#b5b5b5';
+    document.getElementById('txt-category').style.background = '#b5b5b5';
+	
+	document.getElementById('chk-appid').checked = false;
+    document.getElementById('chk-name').checked = false;
+    document.getElementById('chk-genre').checked = false;
+    document.getElementById('chk-developer').checked = false;
+    document.getElementById('chk-category').checked = false;
+	
+	document.getElementById('txt-appid').value = "";
+    document.getElementById('txt-name').value = "";
+    document.getElementById('txt-genre').value = "";
+    document.getElementById('txt-developer').value = "";
+    document.getElementById('txt-category').value = "";
+
 }  

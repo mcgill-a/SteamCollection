@@ -3,54 +3,96 @@
 {% set active_page = "search" %}
 {% block content %}
 <div class="games-bg">
-	<div class="banner container">
-		<h1 class="page-title">Search</h1>
+<div class="container">
+	<div class="split">
+	<div class="search">
+		{#<h1 class="page-title">Search</h1>#}
 		<form onsubmit="return search();" class="search-form">
 			<div class="form-row">
 				<div class="form-heading">
-					<h3>App ID</h3>
+					<input id="chk-appid" type="checkbox" onchange="toggleDisabled(this.checked, 'txt-appid')"/>
 				</div>
 				<div class="form-input">
-					<textarea class="form-text" name="appid" cols="20"></textarea>
+					<textarea id="txt-appid" placeholder="App ID.." disabled class="form-text" name="appid"  rows="1" cols="18"></textarea>
 				</div>
 			</div>
 			<div class="form-row">
                 <div class="form-heading">
-                    <h3>Name</h3>
+                    <input id="chk-name" type="checkbox" onchange="toggleDisabled(this.checked, 'txt-name')"/>
                 </div>
                 <div class="form-input">
-                    <textarea class="form-text" name="name" cols="50"></textarea>
+                    <textarea id="txt-name" placeholder="Name.." disabled class="form-text" name="name" rows="1" cols="18"></textarea>
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-heading">
-                    <h3>Genre</h3>
+					<input id="chk-genre" type="checkbox" onchange="toggleDisabled(this.checked, 'txt-genre')"/>
                 </div>
                 <div class="form-input">
-                    <textarea class="form-text" name="genre" cols="50"></textarea>
+                    <textarea id="txt-genre" placeholder="Genre.." disabled class="form-text" name="genre" rows="1" cols="18"></textarea>
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-heading">
-                    <h3>Developer</h3>
+					<input id="chk-developer" type="checkbox" onchange="toggleDisabled(this.checked, 'txt-developer')"/>
                 </div>
                 <div class="form-input">
-                    <textarea class="form-text" name="developer" cols="60"></textarea>
+                    <textarea id="txt-developer" placeholder="Developer.." disabled class="form-text" name="developer" rows="1" cols="18"></textarea>
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-heading">
-                    <h3>Category</h3>
+					<input id="chk-category" type="checkbox" onchange="toggleDisabled(this.checked, 'txt-category')"/>
                 </div>
                 <div class="form-input">
-                    <textarea class="form-text" name="category", cols="50"></textarea>
+                    <textarea id="txt-category" placeholder="Category.." disabled class="form-text" name="category" rows="1"cols="18"></textarea>
                 </div>
             </div>
 			<div class="form-submit">
-				<input type="submit" value="Search">
+				<input class="btn btn-warning" type="button" value="Reset" onclick="resetSearchForm()"/>
+				<input class="btn btn-success" type="submit" value="Search">
 			</div>
 		</form>
 	</div>
+	<div class="banner container">			
+	{% if games|length > 0 %}
+		{% if empty_search %}
+			<h1 class="page-title">Search</h1>
+		{% else %}
+			<h1 class="page-title">Search Results Found: ({{ games|length }})</h1>
+		{% endif %}
+		<div class="game-list container">
+			<div class="row row-eq-height equal">
+			{% for game in games %}
+				{% for obj in game.iterkeys() %}
+					{% for key, value in game[obj].items() %}
+						{% if key == 'data' %}
+							{# -- GAME DATA ACCESSIBLE FROM HERE (value[field]) #}
+							{% set link = value["steam_appid"] %} 
+							<div class="col-sm-4">
+								<div class="game">
+									<a href="/games/{{ link }}">
+										<img src={{ value["header_image"] }}>
+									</a>
+								</div>
+							</div>
+						{% endif %}
+					{% endfor %}
+				{% endfor %}
+				{% if loop.index % 3 == 0 %}
+					</div>
+					<div class="row row-eq-height-equal">
+				{% endif %}
+			{% endfor %}
+			</div>
+	{% else %}
+		<h1 class="page-title">No Search Results Found</h1>
+	</div>
+	{% endif %}
+	</div>
+	</div>
+</div>
+</div>
 </div>
 {% endblock %}
 
