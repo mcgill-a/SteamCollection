@@ -130,8 +130,9 @@ html, body {
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: no-repeat;
-	height: 92%;
-	width: 100%;
+	min-height: 92%;
+	height: auto;
+	min-width: 100%;
 	text-align: center;
 	margin-top: -10px;
 	display: flex;
@@ -141,8 +142,6 @@ html, body {
 }
 
 .graphic h1 {
-	/*margin-top: -20px;
-	margin-bottom: 10px; */
 	padding: 10px;
 	border: 2px solid white;
 	color: white;
@@ -166,7 +165,6 @@ html, body {
 	margin: 10px 10px;
 	font-weight: bold;
 	border: 2px solid white;
-	/*background: #202021;*/
 }
 
 .graphic .home-buttons {
@@ -292,7 +290,6 @@ html, body {
 }
 
 .game-banner {
-	/*margin-top: -25px !important; */
 	width: 100%;
 	background-size: 100%;
 	color: white;
@@ -300,7 +297,7 @@ html, body {
 	padding: 10% 10% 10% 10% !important;
 	justify-content: center;
 	align-items: center;
-	max-height: 100%; /* Make image smaller */
+	max-height: 100%;
 }
 
 .game-banner h1 {
@@ -355,7 +352,6 @@ html, body {
 
 .game-list .game {
 	margin: 5px -5px 5px -5px;
-	/* min-height: 200px; */
 	font-family: 'Ubuntu', cursive;
 	height: auto;
 	background-color: white;
@@ -480,7 +476,6 @@ a:link, a:visited {
 
 .dev {
 	width: 100%;
-	/* background: black; */
 	display: flex;
 	flex-direction: row;
 	font-family: 'Ubuntu', sans-serif;
@@ -493,7 +488,6 @@ a:link, a:visited {
 	min-width: 40px;
 	width: 60px;
 	text-align: center; 
-	/* background: lightblue; */
 	height: 100%;
 	border-right: 1px solid white;
 	border: 1px solid white;
@@ -503,7 +497,6 @@ a:link, a:visited {
 
 .dev .name {
 	height: 100%;
-	/* background: lightgreen; */
 	width: 500px;
 	padding-left: 14px;
 	border: 1px solid white;
@@ -511,10 +504,6 @@ a:link, a:visited {
 }
 
 .custom-table {
-	/*
-	display: flex;
-	flex-direction: column;
-	justify-content: center; */
 	margin: 0 auto;
 	width: 80%;
 }
@@ -648,12 +637,5 @@ a:link, a:visited {
 	width: 45%;
 	color: black;
 	font-weight: bold;
-	/*background: white;
-	border-radius: 4px;
-	border: 1px solid white;*/
-}
-
-.search-form .form-submit input:hover {
-	/*background: #cecece;*/
 }
 
