@@ -47,12 +47,14 @@ def search():
 			filtered[key] = value
 	matched = lookup(filtered)
 	if len(filtered) > 0 and len(matched) > 0:
-		return render_template('search.html', games=matched, empty_search=False)
+		return render_template('search.html', games=matched, empty_search=False, no_results=False)
 	else:
 		# Use normal game load method as it processes data faster than lookup (search method)
 		matched = load_games()
-		return render_template('search.html', games=matched, empty_search=True)
-
+		if len(filtered) > 0:
+			return render_template('search.html', games=matched, empty_search=True, no_results=True)
+		else:
+			return render_template('search.html', games=matched, empty_search=True, no_results=False)
 
 def remove_html_tags(input):
 	expr = re.compile('<.*?>')
