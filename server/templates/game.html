@@ -7,6 +7,11 @@
 			{% for key, value in game[obj].items() %}
 				{% if key == 'data' %}
 					{# GAME DATA ACCESSIBLE FROM HERE (value[field]) #} 
+					<div class="container up">
+						<div class="pages">
+							<a href="/">Home</a> > <a href="/games/">Games</a> > <a href="/games/{{ value["steam_appid"] }}">{{ value["steam_appid"] }}</a>
+						</div>
+					</div>
 					<div class="game-banner" style="background-image: url({{ value["background"] }})">
 						<div class="left">
 							<img src={{ value["header_image"] }}>

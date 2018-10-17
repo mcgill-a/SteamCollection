@@ -318,6 +318,10 @@ ul.dropdown-menu li {
 	color: white;
 }
 
+.up, .pages {
+	margin-top: -10px;
+}
+
 .pages {
 	font-size: 15px;
 	color: gray;
@@ -348,6 +352,7 @@ ul.dropdown-menu li {
 	justify-content: center;
 	align-items: center;
 	max-height: 100%;
+	margin-top: -12px;
 }
 
 .game-banner h1 {
