@@ -1,14 +1,7 @@
 from collections import OrderedDict
 from flask import Flask, render_template, url_for, jsonify, request, redirect
 from flask_bootstrap import Bootstrap
-import ConfigParser
-import logging
-import os
-import json
-import random
-import re
-import string
-import time
+import ConfigParser, logging, os, json, random, re, string, time
 from logging.handlers import RotatingFileHandler
 app = Flask(__name__)
 bootstrap = Bootstrap(app)
@@ -177,7 +170,7 @@ def genre(genre=None):
 		genre = string.capwords(genre)
 		return render_template('genre.html', games=games, genre=genre)
 	else:
-		genres = load_genres()
+		genres = get_genre_info()
 		return render_template('genres.html', genres=genres)
 
 
@@ -220,6 +213,34 @@ def get_dev_info():
 				data[dev] = 1
 	return data
 
+def get_genre_info():
+	data = {}
+	games = load_games()
+	for index, game in enumerate(games):
+		appid = next(iter(games[index]))
+		if "genres" in game[str(appid)]["data"]:
+			for genre in game[str(appid)]["data"]["genres"]:
+				name = genre["description"]
+				if name in data:
+					data[name] += 1
+				else:
+					data[name] = 1
+	return data
+
+def get_category_info():
+	data = {}
+	games = load_games()
+	for index, game in enumerate(games):
+		appid = next(iter(games[index]))
+		if "categories" in game[str(appid)]["data"]:
+			for category in game[str(appid)]["data"]["categories"]:
+				name = category["description"]
+				if name in data:
+					data[name] += 1
+				else:
+					data[name] = 1
+	return data
+
 
 @app.route('/categories/<cat>')
 @app.route('/categories/')
@@ -239,7 +260,7 @@ def category(cat=None):
 					break
 		return render_template('category.html', games=games, category=actual_name)
 	else:
-		categories = load_categories()
+		categories = get_category_info()
 		return render_template('categories.html', categories=categories)
 
 

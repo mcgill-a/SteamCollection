@@ -6,14 +6,26 @@
 	<div class="banner container">
 		<div class="pages">
 			<a href="/">Home</a> > <a href="/categories/">Categories</a>
-		</div><br />
+		</div>
 		<h1 class="page-title">Categories</h1>
-		<div id="discover">
-			<div class="list">
-				{% for category in categories %}
-					<a href="/categories/{{category}}">{{ category }}</a>
-				{% endfor %}
-			</div>
+		<div class="custom-table">
+		<div class="controls">
+			<button class="table-btns" onclick="sortTable('categoryTable')">Sort Alphabetically</button>		
+			<button class="table-btns" onclick="sortByCount('categoryTable')">Sort by Count</button>
+		</div>
+		<input type="text" class="table-search" id="categoryTableSearch" onkeyup="categorySearch()" placeholder="Search for a Category..">
+		<table id="categoryTable" class="table-info">
+			<tr class="header">
+				<th style="width:90%;">Categories</th>
+				<th style="width:10%;">Games</th>
+			</tr>
+			{% for current in categories.iterkeys() %}
+				<tr>
+					<td><a href="/categories/{{current}}">{{ current }}</a></td>
+					<td>{{ categories[current] }}</td>
+				</tr>
+			{% endfor %}
+		</table>
 		</div>
 	</div>
 </div>

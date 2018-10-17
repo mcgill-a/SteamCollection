@@ -523,7 +523,33 @@ a:link, a:visited {
 
 .controls {
 	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+.controls .sort {
+	width: 25%;
+	padding: 0 5px;
+	display: flex;
 	flex-direction: row-reverse;
+	color: black;
+	align-items: center;
+	background:white;
+	border: 2px solid black;
+	border-left: 1px solid black;
+	font-size: 16px; /* Increase font-size */
+	margin-bottom: 12px; /* Add some space below the input */
+}
+
+.controls .sort p {
+	margin-top: 9px;
+}
+
+
+.controls .search {
+	width: 75%;
+	border: 2px solid black;
+	border-right: 1px solid black;
+	margin-bottom: 12px; /* Add some space below the input */
 }
 .table-btns {
 	margin: 10px 5px;
@@ -535,7 +561,7 @@ a:link, a:visited {
 	color: white;
 }
 
-#devTableSearch {
+.table-search {
 	color: black;
 	background-image: url('https://i.imgur.com/uvPcYF2.png');
 	background-position: 10px 12px; /* Position the search icon */
@@ -544,34 +570,34 @@ a:link, a:visited {
     font-size: 16px; /* Increase font-size */
     padding: 12px 20px 12px 40px; /* Add some padding */
     border: 1px solid #ddd; /* Add a grey border */
-    margin-bottom: 12px; /* Add some space below the input */
+    
 }
 
-#devTable {
+.table-info {
     border-collapse: collapse; /* Collapse borders */
     width: 100%;
     border: 1px solid #ddd; /* Add a grey border */
     font-size: 18px; /* Increase font-size */
 }
 
-#devTable th, #devTable td {
+.table-info th, .table-info td {
     text-align: left; /* Left-align text */
     padding: 12px; /* Add padding */
 }
 
-#devTable tr td, #devTable th {
+.table-info tr td, .table-info th {
 	border-left: 1px solid white;
 }
 
-#devTable tr {
+.table-info tr {
     /* Add a bottom border to all table rows */
     border-bottom: 1px solid #ddd; 
 }
 
-#devTable tr.header, #devTable tr.header:hover {
+.table-info tr.header, .table-info tr.header:hover {
 	background-color: lightblue;
 }
-#devTable tr:hover {
+.table-info tr:hover {
     /* Add a grey background color to the table header and on hover */
     background-color: #222;
 }

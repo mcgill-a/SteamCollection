@@ -1,19 +1,31 @@
 {% extends "base.html" %}
-{% set page_title = Categories %}
-{# {% set active_page = "" %} #}
+{% set page_title = "Genres" %}
+{% set active_page = "genres" %}
 {% block content %}
 <div class="games-bg">
 	<div class="banner container">
 		<div class="pages">
 			<a href="/">Home</a> > <a href="/genres/">Genres</a>
-		</div><br />
+		</div>
 		<h1 class="page-title">Genres</h1>
-		<div id="discover">
-			<div class="list">
-				{% for genre in genres %}
-					<a href="/genres/{{genre}}">{{ genre }}</a>
-				{% endfor %}
-			</div>
+		<div class="custom-table">
+		<div class="controls">
+			<button class="table-btns" onclick="sortTable('genreTable')">Sort Alphabetically</button>		
+			<button class="table-btns" onclick="sortByCount('genreTable')">Sort by Count</button>
+		</div>
+		<input type="text" class="table-search" id="genreTableSearch" onkeyup="genreSearch()" placeholder="Search for a Genre..">
+		<table id="genreTable" class="table-info">
+			<tr class="header">
+				<th style="width:90%;">Genre</th>
+				<th style="width:10%;">Games</th>
+			</tr>
+			{% for current in genres.iterkeys() %}
+				<tr>
+					<td><a href="/genres/{{current}}">{{ current }}</a></td>
+					<td>{{ genres[current] }}</td>
+				</tr>
+			{% endfor %}
+		</table>
 		</div>
 	</div>
 </div>

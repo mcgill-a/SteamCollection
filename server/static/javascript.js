@@ -30,9 +30,9 @@ function scrollTo(element) {
     scrollTo(document.getElementById("discover"));
   });
 
-function sortTable() {
+function sortTable(selected_table) {
   var table, rows, switching, i, x, y, shouldSwitch;
-  table = document.getElementById("devTable");
+  table = document.getElementById(selected_table);
   switching = true;
   /*Make a loop that will continue until
   no switching has been done:*/
@@ -64,9 +64,9 @@ function sortTable() {
     }
   }
 }
-function sortByCount() {
+function sortByCount(selected_table) {
   var table, rows, switching, i, x, y, shouldSwitch;
-  table = document.getElementById("devTable");
+  table = document.getElementById("selected_table");
   switching = true;
   while (switching) {
     switching = false;
