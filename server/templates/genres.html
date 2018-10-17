@@ -14,11 +14,11 @@
 						<input type="text" class="table-search" id="genreTableSearch" onkeyup="tableSearch('genreTableSearch', 'genreTable')" placeholder="Search for a Genre..">
 				</div>
 				<div class="sort">
-					<select id="table-sort">
-						<option value="L" selected="selected">Count: High > Low</option>
-						<option value="H">Count: Low > High</option>
-						<option value="A">Alphabetical: A-Z</option>
-						<option value="Z">Alphabetical: Z-A</option>
+					<select id="table-sort" onchange="sortController('genreTable')">
+						<option value='H' selected="selected">Count: High > Low</option>
+						<option value='L'>Count: Low > High</option>
+						<option value='A'>Alphabetical: A - Z</option>
+						<option value='Z'>Alphabetical: Z - A</option>
 					</select>
 					<p>Sort By:</p>
 				</div>

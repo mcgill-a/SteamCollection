@@ -13,12 +13,12 @@
 				<div class ="search">
 					<input type="text" class="table-search" id="devTableSearch" onkeyup="tableSearch('devTableSearch', 'devTable')" placeholder="Search for a Developer..">
 				</div>
-				<div class="sort">
+				<div class="sort" onchange="sortController('devTable')">
 					<select id="table-sort">
-						<option value="L" selected="selected">Count: High > Low</option>
-						<option value="H">Count: Low > High</option>
-						<option value="A">Alphabetical: A-Z</option>
-						<option value="Z">Alphabetical: Z-A</option>
+						<option value='H' selected="selected">Count: High > Low</option>
+						<option value='L'>Count: Low > High</option>
+						<option value='A'>Alphabetical: A - Z</option>
+						<option value='Z'>Alphabetical: Z - A</option>
 					</select>
 					<p>Sort By:</p>
 				</div>
