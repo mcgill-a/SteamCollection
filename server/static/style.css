@@ -2,6 +2,7 @@ html, body {
 	height: 100%;
 	margin: 0;
 	min-width: 800px;
+	max-width: 100%;
 }
 
 *:focus {
@@ -11,17 +12,29 @@ html, body {
 
 .split {
 	width: 100%;
-	max-width: 1400px;
+	/*max-width: 1400px;*/
 	display: flex;
 	flex-direction: row;
 	margin-top: 15px;
+	margin-left: 0;
 	justify-content: center;
 }
 
 .split .search {
-	margin-top: 25%;
+	padding-top: 25%;
 }
 
+.split .content {
+	width: auto;
+	max-width: 85%;
+	text-align: center;
+	padding-right: 16px;
+}
+.split .content .container {
+	max-width: 100%;
+	margin-right: 0;
+	padding-right: 0;
+}
 .error-bg {
 	margin-top: -25px;
 	width: 100%;
