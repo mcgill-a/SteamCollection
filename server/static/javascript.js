@@ -26,11 +26,10 @@ function scrollTo(element) {
     behavior: 'smooth'
   });
 }
-/*
-document.getElementById("btn_discover").addEventListener('click', () => {
-  scrollTo(document.getElementById("discover"));
+
+document.getElementById("btn-return").addEventListener('click', () => {
+  scrollTo(document.getElementById("navbar"));
 });
-*/
 
 function sortController(selected_table) {
 

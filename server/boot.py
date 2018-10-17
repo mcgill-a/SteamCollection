@@ -152,7 +152,6 @@ def load_developer_games(dev):
 			file_path = (full_path + filename)
 			with open(file_path) as data:
 				info = json.load(data)
-				#name = os.path.splitext(os.path.basename(file_path))[0]
 				name = next(iter(info))
 				if info[name]["success"] == True:
 					for current in info[name]["data"]["developers"]:
@@ -354,7 +353,6 @@ def api_game(appid=None):
 		if (os.path.exists(str(full_path))):
 			with open(full_path) as data:
 				game = json.load(data)
-				game_name = game[appid]["data"]["name"]
 				# If there is a short decription then use it instead of longer description
 				if len(game[appid]["data"]["short_description"]) > 40:
 					desc = remove_html_tags(game[appid]["data"]["short_description"])[:300]

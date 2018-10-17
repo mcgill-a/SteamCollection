@@ -8,13 +8,13 @@
 				{% if key == 'data' %}
 					{# GAME DATA ACCESSIBLE FROM HERE (value[field]) #} 
 					<div class="game-banner" style="background-image: url({{ value["background"] }})">
-							<div class="left">
-								<img src={{ value["header_image"] }}>
+						<div class="left">
+							<img src={{ value["header_image"] }}>
+						</div>
+						<div class="right">
+							<h2>{{ value["name"] }}</h2>
+							{{ desc|safe }}
 							</div>
-							<div class="right">
-								<h2>{{ value["name"] }}</h2>
-								{{ desc|safe }}
-								</div>
 						</div>
 					</div>
 					<div class="game-content">
@@ -71,11 +71,11 @@
 							<div class="section-title"><h2>CATEGORY</h2></div><br />
 						{% endif %}
 						<ul class="bb_ul">
-						{% for cat in value["categories"] %}
-							<li>
-								<a href="/categories/{{ cat["description"] }}">{{ cat["description"] }}</a>
-							</li>
-						{% endfor %}
+							{% for cat in value["categories"] %}
+								<li>
+									<a href="/categories/{{ cat["description"] }}">{{ cat["description"] }}</a>
+								</li>
+							{% endfor %}
 						</ul>
 						{% if value["developers"]|length > 1 %}
 							<div class="section-title"><h2>DEVELOPERS</h2></div><br />
@@ -89,6 +89,9 @@
 								</li>
 							{% endfor %}
 						</ul>
+						<div class="center">
+							<button type="button" id="btn-return" class="return-page-top">RETURN TO TOP</button>
+						</div>
 					</div>
 				</div>
 				</div>
