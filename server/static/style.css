@@ -657,11 +657,11 @@ a:link, a:visited {
 	resize: none;
 	font-size: 13px;
 	border-radius: 4px;
-	background: #b5b5b5;
+	/*background: #b5b5b5; */
 }
 
-.search-form input:disabled {
-	background: #b5b5b5;
+input:disabled {
+	background: none !important;
 }
 
 .search-form .form-row {

@@ -112,27 +112,40 @@
 	document.getElementById('txt-category').value = getValueByName('category');
 	document.getElementById('txt-appid').value = getValueByName('appid');
 
-	if (document.getElementById('txt-name').value != "")
-	{
-		document.getElementById('chk-name').checked = true;
+	function setupSearchBox() {
+		if (document.getElementById('txt-name').value != "")
+		{
+			document.getElementById('chk-name').checked = true;
+			document.getElementById('txt-name').disabled = false;
+			document.getElementById('txt-name').style.backgroundColor = "";
+		}
+		if (document.getElementById('txt-genre').value != "")
+		{
+			document.getElementById('chk-genre').checked = true;
+			document.getElementById('txt-genre').disabled = false;
+			document.getElementById('txt-genre').style.backgroundColor = "";
+		}
+		if (document.getElementById('txt-developer').value != "")
+		{
+			document.getElementById('chk-developer').checked = true;
+			document.getElementById('txt-developer').disabled = false;
+			document.getElementById('txt-developer').style.backgroundColor = "";
+		}
+		if (document.getElementById('txt-category').value != "")
+		{
+			document.getElementById('chk-category').checked = true;
+			document.getElementById('txt-category').disabled = false;
+			document.getElementById('txt-category').style.backgroundColor = "";
+		}
+		if (document.getElementById('txt-appid').value != "")
+		{
+			document.getElementById('chk-appid').checked = true;
+			document.getElementById('txt-appid').disabled = false;
+			document.getElementById('txt-appid').style.backgroundColor = "";
+		}
 	}
-	if (document.getElementById('txt-genre').value != "")
-    {
-        document.getElementById('chk-genre').checked = true;
-    }
-	if (document.getElementById('txt-developer').value != "")
-    {
-        document.getElementById('chk-developer').checked = true;
-    }
-	if (document.getElementById('txt-category').value != "")
-    {
-        document.getElementById('chk-category').checked = true;
-    }
-	if (document.getElementById('txt-appid').value != "")
-    {
-        document.getElementById('chk-appid').checked = true;
-    }
-
+	
+	setupSearchBox();
 		
 </script>
 {% endblock %}
