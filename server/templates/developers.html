@@ -15,10 +15,10 @@
 				</div>
 				<div class="sort" onchange="sortController('devTable')">
 					<select id="table-sort">
-						<option value='H' selected="selected">Count: High > Low</option>
-						<option value='L'>Count: Low > High</option>
-						<option value='A'>Alphabetical: A - Z</option>
+						<option value='A' selected="selected">Alphabetical: A - Z</option>
 						<option value='Z'>Alphabetical: Z - A</option>
+						<option value='H'>Count: High > Low</option>
+						<option value='L'>Count: Low > High</option>
 					</select>
 					<p>Sort By:</p>
 				</div>
@@ -38,5 +38,10 @@
 		</div>
 	</div>
 </div>
+<script>
+	window.onload = function() {
+		tableSortA('devTable');
+	};
+</script>
 {% endblock %}
 
