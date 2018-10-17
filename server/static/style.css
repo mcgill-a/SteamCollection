@@ -91,6 +91,7 @@ html, body {
 .navbar li a:hover {
 	font-weight: bolder;
 	text-decoration: none !important;
+	background: none;
 }
 
 .navbar .active a {
@@ -133,6 +134,37 @@ html, body {
 .ul.nav li {
 	color: white !important;
 }
+
+ul.dropdown-menu {
+	background: #202021 !important;
+	flex-direction: column;
+	justify-content: right;
+	text-align: right;
+	padding: 0;
+	margin: 0;
+	margin-top: 3px !important;
+	height: 200px !important;
+	min-width: 100px;
+}
+
+ul.dropdown-menu li {
+	height: 40px;
+	width: auto;
+} 
+
+.navbar ul.dropdown-neby li .active {
+	border-bottom: 2px solid white;
+}
+
+.navbar ul.dropdown-menu li a:hover {
+	background-color: none;
+}
+
+.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:focus, .navbar-inverse .navbar-nav>.open>a:hover {
+	background-color: transparent !important;
+}
+
+.navbar-inverse .navbar-nav
 
 #nav-right {
 	color: white;

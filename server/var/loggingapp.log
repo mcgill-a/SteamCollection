@@ -51,3 +51,99 @@ Traceback (most recent call last):
   File "C:\Users\AlexM\Documents\Uni\Y3\AWT\mcgill_alex_set09103_cw1\server\boot.py", line 228, in get_genre_info
     for genre in game[str(appid)]["data"]["genres"].values():
 AttributeError: 'list' object has no attribute 'values'
+ERROR | app | log_exception | Exception on /categories/ [GET]
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\AlexM\Documents\Uni\Y3\AWT\mcgill_alex_set09103_cw1\server\boot.py", line 274, in category
+    return render_template('categories.html', categories=categories)
+  File "C:\Python27\lib\site-packages\flask\templating.py", line 135, in render_template
+    context, ctx.app)
+  File "C:\Python27\lib\site-packages\flask\templating.py", line 117, in _render
+    rv = template.render(context)
+  File "C:\Python27\lib\site-packages\jinja2\environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "C:\Python27\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\AlexM\Documents\Uni\Y3\AWT\mcgill_alex_set09103_cw1\server\templates\base.html", line 64, in template
+    {% endif %}
+TemplateSyntaxError: Encountered unknown tag 'endif'. Jinja was looking for the following tags: 'endfor'. The innermost block that needs to be closed is 'for'.
+ERROR | app | log_exception | Exception on /favicon.ico [GET]
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1713, in handle_user_exception
+    return self.handle_http_exception(e)
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1644, in handle_http_exception
+    return handler(e)
+  File "C:\Users\AlexM\Documents\Uni\Y3\AWT\mcgill_alex_set09103_cw1\server\boot.py", line 18, in error_400
+    return render_template('error.html', error=404, previous=previous), 404
+  File "C:\Python27\lib\site-packages\flask\templating.py", line 135, in render_template
+    context, ctx.app)
+  File "C:\Python27\lib\site-packages\flask\templating.py", line 117, in _render
+    rv = template.render(context)
+  File "C:\Python27\lib\site-packages\jinja2\environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "C:\Python27\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\AlexM\Documents\Uni\Y3\AWT\mcgill_alex_set09103_cw1\server\templates\base.html", line 64, in template
+    {% endif %}
+TemplateSyntaxError: Encountered unknown tag 'endif'. Jinja was looking for the following tags: 'endfor'. The innermost block that needs to be closed is 'for'.
+ERROR | app | log_exception | Exception on /categories/ [GET]
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\AlexM\Documents\Uni\Y3\AWT\mcgill_alex_set09103_cw1\server\boot.py", line 274, in category
+    return render_template('categories.html', categories=categories)
+  File "C:\Python27\lib\site-packages\flask\templating.py", line 135, in render_template
+    context, ctx.app)
+  File "C:\Python27\lib\site-packages\flask\templating.py", line 117, in _render
+    rv = template.render(context)
+  File "C:\Python27\lib\site-packages\jinja2\environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "C:\Python27\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\AlexM\Documents\Uni\Y3\AWT\mcgill_alex_set09103_cw1\server\templates\base.html", line 64, in template
+    {% endif %}
+TemplateSyntaxError: Encountered unknown tag 'endif'. Jinja was looking for the following tags: 'endfor'. The innermost block that needs to be closed is 'for'.
+ERROR | app | log_exception | Exception on /favicon.ico [GET]
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1713, in handle_user_exception
+    return self.handle_http_exception(e)
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1644, in handle_http_exception
+    return handler(e)
+  File "C:\Users\AlexM\Documents\Uni\Y3\AWT\mcgill_alex_set09103_cw1\server\boot.py", line 18, in error_400
+    return render_template('error.html', error=404, previous=previous), 404
+  File "C:\Python27\lib\site-packages\flask\templating.py", line 135, in render_template
+    context, ctx.app)
+  File "C:\Python27\lib\site-packages\flask\templating.py", line 117, in _render
+    rv = template.render(context)
+  File "C:\Python27\lib\site-packages\jinja2\environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "C:\Python27\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\AlexM\Documents\Uni\Y3\AWT\mcgill_alex_set09103_cw1\server\templates\base.html", line 64, in template
+    {% endif %}
+TemplateSyntaxError: Encountered unknown tag 'endif'. Jinja was looking for the following tags: 'endfor'. The innermost block that needs to be closed is 'for'.

@@ -28,8 +28,14 @@
 {% set navigation_bar = [
 	('/', 'index', 'Home'),
 	('/games/', 'games', 'Games'),
-	('/developers/', 'developers', 'Developers'),
+	('javascript:void(0)', 'search', 'Search'),
 	('/api/', api, 'API'),
+	] -%}
+
+{% set dropdown = [
+	('/genres/', 'genres', 'Genres'),
+	('/developers/', 'developers', 'Developers'),
+	('/categories', 'categories', 'Categories'),
 	] -%}
 
 {#{% set active_page = active_page|default('index') -%}#}
@@ -40,9 +46,20 @@
 		</div>
 		<ul class="nav navbar-nav navbar-right">
 			{% for href, id, caption in navigation_bar %}
-				<li {% if id == active_page %} class="active" {% endif %}>
-					<a href="{{ href|e }}">{{ caption|e }}</a>
-				</li>
+				{% if id == "search" %}
+					<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)">Search <span class="caret"></span></a>
+						<ul class="dropdown-menu dropdown-menu-right">
+							{% for href2, id2, caption2 in dropdown %}
+								<li {% if id2 == active_page %} class="active" {% endif %}>
+									<a href="{{ href2|e }}">{{ caption2|e }}</a>
+								</li>
+							{% endfor %}
+						</ul>
+				{% else %}
+					<li {% if id == active_page %} class="active" {% endif %}>
+						<a href="{{ href|e }}">{{ caption|e }}</a>
+					</li>
+				{% endif %}
 			{% endfor%}
 		</ul>
 	</div>
