@@ -1,11 +1,11 @@
 {% extends "base.html" %}
-{% set page_title = "Search" %}
-{% set active_page = "search" %}
+{% set page_title = "Games" %}
+{% set active_page = "games" %}
 {% block content %}
 <div class="games-bg">
 <div class="banner container">
 	<div class="pages">
-		<a href="/">Home</a> > <a href="/search/">Search</a>
+		<a href="/">Home</a> > <a href="/games/">Games</a>
 	</div>
 	<div class="split">
 	<div class="search">
@@ -51,7 +51,7 @@
 				</div>
 			</div>
 			<div class="form-submit">
-				<a href="/search/"><input class="btn btn-warning" type="button" value="Reset"/></a>
+				<a href="/games/"><input class="btn btn-warning" type="button" value="Reset"/></a>
 				{#<input class="btn btn-warning" type="button" value="Reset" onclick="resetSearchForm()"/>#}
 				<input class="btn btn-primary" type="submit" value="Search">
 			</div>
@@ -60,7 +60,7 @@
 	<div class="content">	
 	{% if games|length > 0 %}
 		{% if empty_search %}
-			<h1 class="page-title">Search</h1>
+			<h1 class="page-title">Games</h1>
 		{% else %}
 			<h1 class="page-title">Search Results Found: ({{ games|length }})</h1>
 		{% endif %}

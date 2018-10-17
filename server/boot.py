@@ -31,11 +31,27 @@ def error_500(e):
 	return render_template('error.html', error=500, previous=previous), 500
 
 
-@app.route('/games/')
+#@app.route('/games/')
 def games():
 	games = load_games()
 	random.shuffle(games)
 	return render_template('games.html', games=games)
+
+#@app.route('/search/')
+@app.route('/games/')
+def search():
+	args = request.args.to_dict()
+	filtered = {}
+	for key, value in args.iteritems():
+		if value:
+			filtered[key] = value
+	matched = lookup(filtered)
+	if len(filtered) > 0 and len(matched) > 0:
+		return render_template('search.html', games=matched, empty_search=False)
+	else:
+		# Use normal game load method as it processes data faster than lookup (search method)
+		matched = load_games()
+		return render_template('search.html', games=matched, empty_search=True)
 
 
 def remove_html_tags(input):
@@ -225,22 +241,6 @@ def category(cat=None):
 	else:
 		categories = load_categories()
 		return render_template('categories.html', categories=categories)
-
-
-@app.route('/search/')
-def search():
-	args = request.args.to_dict()
-	filtered = {}
-	for key, value in args.iteritems():
-		if value:
-			filtered[key] = value
-	matched = lookup(filtered)
-	if len(filtered) > 0 and len(matched) > 0:
-		return render_template('search.html', games=matched, empty_search=False)
-	else:
-		# Use normal game load method as it processes data faster than lookup (search method)
-		matched = load_games()
-		return render_template('search.html', games=matched, empty_search=True)
 
 
 def lookup(args):
