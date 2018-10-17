@@ -14,7 +14,7 @@
 						<input type="text" class="table-search" id="categoryTableSearch" onkeyup="tableSearch('categoryTableSearch', 'categoryTable')" placeholder="Search for a Category..">
 				</div>
 				<div class="sort">
-					<select id="table-sort">
+					<select id="table-sort" onchange="sortController('categoryTable')">
 						<option value='H' selected="selected">Count: High > Low</option>
 						<option value='L'>Count: Low > High</option>
 						<option value='A'>Alphabetical: A - Z</option>
