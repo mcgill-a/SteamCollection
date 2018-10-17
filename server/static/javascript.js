@@ -1,9 +1,9 @@
-function devSearch() {
+function tableSearch(selected_table_search, selected_table) {
   // Declare variables 
   var input, filter, table, tr, td, i;
-  input = document.getElementById("devTableSearch");
+  input = document.getElementById(selected_table_search);
   filter = input.value.toUpperCase();
-  table = document.getElementById("devTable");
+  table = document.getElementById(selected_table);
   tr = table.getElementsByTagName("tr");
 
   // Loop through all table rows, and hide those who don't match the search query
@@ -30,7 +30,7 @@ function scrollTo(element) {
     scrollTo(document.getElementById("discover"));
   });
 
-function sortTable(selected_table) {
+function tableSort(selected_table) {
   var table, rows, switching, i, x, y, shouldSwitch;
   table = document.getElementById(selected_table);
   switching = true;
