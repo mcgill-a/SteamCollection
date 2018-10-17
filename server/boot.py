@@ -1,14 +1,23 @@
 from collections import OrderedDict
 from flask import Flask, render_template, url_for, jsonify, request, redirect
 from flask_bootstrap import Bootstrap
-import ConfigParser, logging, os, json, random, re, string, time
+import ConfigParser
+import logging
+import os
+import json
+import random
+import re
+import string
+import time
 from logging.handlers import RotatingFileHandler
 app = Flask(__name__)
 bootstrap = Bootstrap(app)
 
+
 @app.route('/')
 def index(discover=None):
 	return render_template('index.html')
+
 
 @app.errorhandler(404)
 def error_400(e):
@@ -21,11 +30,13 @@ def error_500(e):
 	previous = request.referrer
 	return render_template('error.html', error=500, previous=previous), 500
 
+
 @app.route('/games/')
 def games():
 	games = load_games()
 	random.shuffle(games)
 	return render_template('games.html', games=games)
+
 
 def remove_html_tags(input):
 	expr = re.compile('<.*?>')
@@ -35,12 +46,12 @@ def remove_html_tags(input):
 
 @app.route('/games/<appid>')
 def game(appid=None):
-	desc = "";
+	desc = ""
 	game_name = ""
 	if (appid is not None):
 		filename = "data/steam-api/" + appid + ".json"
 		full_path = os.path.join(app.static_folder, filename)
-        if (os.path.exists(str(full_path))):
+		if (os.path.exists(str(full_path))):
 			with open(full_path) as data:
 				game = json.load(data)
 				game_name = game[appid]["data"]["name"]
@@ -50,11 +61,11 @@ def game(appid=None):
 				else:
 					desc = remove_html_tags(game[appid]["data"]["about_the_game"])[:300]
 					# Get all complete sentences from the description
-					desc = desc.rsplit('.',1)[0] + "."
+					desc = desc.rsplit('.', 1)[0] + "."
 				return render_template('game.html', game=game, game_name=game_name,  desc=desc)
 	return render_template('game.html', app=None)
 
-	
+
 def load_games():
 	games = []
 	count = 0
@@ -70,6 +81,7 @@ def load_games():
 					games.append(info)
 					count += 1
 	return games
+
 
 def load_genres():
 	games = load_games()
@@ -106,6 +118,7 @@ def load_genre_games(genre_input):
 				if genre_input.lower() == genre["description"].lower():
 					relevant_games.append(game)
 	return relevant_games
+
 
 def load_category_games(cat_input):
 	games = load_games()
@@ -164,13 +177,14 @@ def developer(dev=None):
 				if dev.lower() == current.lower():
 					found = True
 					actual_name = current
-					break;
+					break
 			if found:
-				break;
+				break
 	if found:
 		return render_template('developer.html', games=games, developer=actual_name)
 	else:
 		return render_template('developer.html', developer=dev)
+
 
 @app.route('/developers/')
 def developers():
@@ -220,7 +234,6 @@ def search():
 	for key, value in args.iteritems():
 		if value:
 			filtered[key] = value
-			print key, value
 	matched = lookup(filtered)
 	if len(filtered) > 0 and len(matched) > 0:
 		return render_template('search.html', games=matched, empty_search=False)
@@ -228,6 +241,7 @@ def search():
 		# Use normal game load method as it processes data faster than lookup (search method)
 		matched = load_games()
 		return render_template('search.html', games=matched, empty_search=True)
+
 
 def lookup(args):
 	query = {}
@@ -244,11 +258,11 @@ def lookup(args):
 			if key == "appid":
 				if value != appid:
 					valid = False
-					break;
+					break
 			elif key == "name":
 				if value not in game[str(appid)]["data"]["name"].lower():
 					valid = False
-					break;
+					break
 			elif key == "developer":
 				devFound = False
 				for dev in game[str(appid)]["data"]["developers"]:
@@ -281,22 +295,25 @@ def lookup(args):
 			matched.append(game)
 	return matched
 
+
 @app.route('/api/')
 def api():
-	return render_template('api.html') 
+	return render_template('api.html')
+
 
 @app.route('/api/request/')
 def api_search():
 	args = request.args.to_dict()
 	matched = lookup(args)
 	ts = time.gmtime()
-	output = (time.strftime("%Y-%m-%d %H:%M:%S", ts)) + " | " + request.remote_addr + " | " + str(request.query_string)
-	print output
-	app.logger.info(output)	
+	output = (time.strftime("%Y-%m-%d %H:%M:%S", ts)) + " | " + \
+            request.remote_addr + " | " + str(request.query_string)
+	app.logger.info(output)
 	if len(matched) > 0:
 		return jsonify(matched)
 	else:
 		return jsonify('null')
+
 
 @app.route('/api/games/<appid>')
 def api_game(appid=None):
@@ -313,41 +330,44 @@ def api_game(appid=None):
 				else:
 					desc = remove_html_tags(game[appid]["data"]["about_the_game"])[:300]
 					# Get all complete sentences from the description
-					desc = desc.rsplit('.',1)[0] + "."	
+					desc = desc.rsplit('.', 1)[0] + "."
 			return jsonify(game)
 		else:
-			output = {appid:({'success':False})}
+			output = {appid: ({'success': False})}
 			return jsonify(output)
 	else:
 		return jsonify('null')
+
 
 def init(app):
 	config = ConfigParser.ConfigParser()
 	try:
 		config_location = "etc/defaults.cfg"
 		config.read(config_location)
-		
+
 		app.config['DEBUG'] = config.get("config", "DEBUG")
 		app.config['ip_address'] = config.get("config", "IP_ADDRESS")
 		app.config['port'] = config.get("config", "PORT")
 		app.config['url'] = config.get("config", "URL")
-		
+
 		app.config['log_location'] = config.get("logging", "LOCATION")
 		app.config['log_file'] = config.get("logging", "NAME")
 		app.config['log_level'] = config.get("logging", "LEVEL")
 	except:
-		print "Could not read configs from: ", config_location
+		print ("Could not read configs from: ", config_location)
 
 
 def logs(app):
 	log_pathname = app.config['log_location'] + app.config['log_file']
-	file_handler = RotatingFileHandler(log_pathname, maxBytes=(1024 * 1024 * 10), backupCount=1024)
+	file_handler = RotatingFileHandler(
+		log_pathname, maxBytes=(1024 * 1024 * 10), backupCount=1024)
 	file_handler.setLevel(app.config['log_level'])
-	formatter = logging.Formatter("%(levelname)s | %(module)s | %(funcName)s | %(message)s")
+	formatter = logging.Formatter(
+		"%(levelname)s | %(module)s | %(funcName)s | %(message)s")
 	file_handler.setFormatter(formatter)
 	app.logger.setLevel(app.config['log_level'])
 	app.logger.addHandler(file_handler)
-	print "logger loaded"
+
 
 if __name__ == '__main__':
 	init(app)
