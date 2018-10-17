@@ -9,7 +9,8 @@ bootstrap = Bootstrap(app)
 
 @app.route('/')
 def index(discover=None):
-	return render_template('index.html')
+	appid = random_game()
+	return render_template('index.html', random_game=appid)
 
 
 @app.errorhandler(404)
@@ -29,6 +30,12 @@ def games():
 	games = load_games()
 	random.shuffle(games)
 	return render_template('games.html', games=games)
+
+def random_game():
+	games = load_games()
+	game = games[random.randint(0, len(games) -1)]
+	appid = next(iter(game))
+	return appid
 
 #@app.route('/search/')
 @app.route('/games/')
