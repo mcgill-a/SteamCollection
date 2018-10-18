@@ -16,8 +16,8 @@ html, body {
 }
 
 .split {
+	z-index: 0;
 	width: 100%;
-	/*max-width: 1400px;*/
 	display: flex;
 	flex-direction: row;
 	margin-top: 15px;
@@ -30,6 +30,7 @@ html, body {
 }
 
 .split .content {
+	z-index: 0;
 	width: auto;
 	max-width: 85%;
 	text-align: center;
@@ -56,7 +57,6 @@ html, body {
 
 .error-text {
 	text-align: center;
-	/*background: lightgreen;*/
 	width: auto;
 	color: black;
 	margin-bottom: 250px;
@@ -88,6 +88,13 @@ html, body {
 .navbar-collapse {
 	background-color: #202021;
 	text-align: right;
+	z-index: 100;
+}
+
+@media (min-width: 768px) {
+	.navbar-collapse.collapse {
+		height: 75px !important;
+	}
 }
 
 .navbar-toggle {
@@ -600,8 +607,8 @@ a:link, a:visited {
 	background:white;
 	border: 2px solid black;
 	border-left: 1px solid black;
-	font-size: 16px; /* Increase font-size */
-	margin-bottom: 12px; /* Add some space below the input */
+	font-size: 16px;
+	margin-bottom: 12px;
 }
 
 .controls .sort p {
@@ -613,7 +620,7 @@ a:link, a:visited {
 	width: 75%;
 	border: 2px solid black;
 	border-right: 1px solid black;
-	margin-bottom: 12px; /* Add some space below the input */
+	margin-bottom: 12px;
 }
 .table-btns {
 	margin: 10px 5px;
@@ -627,26 +634,26 @@ a:link, a:visited {
 
 .table-search {
 	color: black;
-	background-image: url('https://i.imgur.com/uvPcYF2.png');
-	background-position: 10px 12px; /* Position the search icon */
-    background-repeat: no-repeat; /* Do not repeat the icon image */
+	background-image: url("resources/search.png");
+	background-position: 10px 12px;
+    background-repeat: no-repeat;
     width: 100%;
-    font-size: 16px; /* Increase font-size */
-    padding: 12px 20px 12px 40px; /* Add some padding */
-    border: 1px solid #ddd; /* Add a grey border */
+    font-size: 16px;
+    padding: 12px 20px 12px 40px;
+    border: 1px solid #ddd;
     
 }
 
 .table-info {
-    border-collapse: collapse; /* Collapse borders */
+    border-collapse: collapse;
     width: 100%;
-    border: 1px solid #ddd; /* Add a grey border */
-    font-size: 18px; /* Increase font-size */
+    border: 1px solid #ddd;
+    font-size: 18px;
 }
 
 .table-info th, .table-info td {
-    text-align: left; /* Left-align text */
-    padding: 12px; /* Add padding */
+    text-align: left;
+    padding: 12px;
 }
 
 .table-info tr td, .table-info th {
@@ -654,7 +661,6 @@ a:link, a:visited {
 }
 
 .table-info tr {
-    /* Add a bottom border to all table rows */
     border-bottom: 1px solid #ddd; 
 }
 
@@ -662,7 +668,6 @@ a:link, a:visited {
 	background-color: lightblue;
 }
 .table-info tr:hover {
-    /* Add a grey background color to the table header and on hover */
     background-color: #222;
 }
 
@@ -678,7 +683,6 @@ a:link, a:visited {
 	resize: none;
 	font-size: 13px;
 	border-radius: 4px;
-	/*background: #b5b5b5; */
 }
 
 input:disabled {
