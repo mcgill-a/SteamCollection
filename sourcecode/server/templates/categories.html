@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% set page_title = Categories %}
+{% set active_page = "categories" %}
+{% block content %}
+<div class="games-bg">
+	<div class="banner container">
+		<div class="pages">
+			<a href="/">Home</a> > <a href="/categories/">Categories</a>
+		</div>
+		<h1 class="page-title">Categories</h1>
+		<div class="custom-table">
+			<div class="controls">
+				<div class ="search">
+						<input type="text" class="table-search" id="categoryTableSearch" onkeyup="tableSearch('categoryTableSearch', 'categoryTable')" placeholder="Search for a Category..">
+				</div>
+				<div class="sort">
+					<select id="table-sort" onchange="sortController('categoryTable')">
+						<option value='A' selected="selected">Alphabetical: A - Z</option>
+						<option value='Z'>Alphabetical: Z - A</option>
+						<option value='H'>Count: High > Low</option>
+						<option value='L'>Count: Low > High</option>
+					</select>
+					<p>Sort By:</p>
+				</div>
+			</div>
+			<table id="categoryTable" class="table-info">
+				<tr class="header">
+					<th style="width:90%;">Categories</th>
+					<th style="width:10%;">Games</th>
+				</tr>
+				{% for current in categories.iterkeys() %}
+					<tr>
+						<td><a href="/categories/{{current}}">{{ current }}</a></td>
+						<td>{{ categories[current] }}</td>
+					</tr>
+				{% endfor %}
+			</table>
+		</div>
+	</div>
+</div>
+<script>
+	window.onload = function() {
+		tableSortA('categoryTable');
+	};
+</script>
+{% endblock %}
+

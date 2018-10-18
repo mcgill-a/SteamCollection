@@ -1,0 +1,151 @@
+{
+ "80": {
+  "data": {
+   "steam_appid": 80, 
+   "achievements": {
+    "total": 0
+   }, 
+   "price_overview": {
+    "currency": "GBP", 
+    "initial": 719, 
+    "final": 719, 
+    "discount_percent": 0
+   }, 
+   "platforms": {
+    "windows": true, 
+    "mac": true, 
+    "linux": true
+   }, 
+   "detailed_description": "With its extensive Tour of Duty campaign, a near-limitless number of skirmish modes, updates and new content for Counter-Strike's award-winning multiplayer game play, plus over 12 bonus single player missions, Counter-Strike: Condition Zero is a tremendous offering of single and multiplayer content.", 
+   "screenshots": [
+    {
+     "path_thumbnail": "https://steamcdn-a.akamaihd.net/steam/apps/80/0000002528.600x338.jpg?t=1512411962", 
+     "id": 0, 
+     "path_full": "https://steamcdn-a.akamaihd.net/steam/apps/80/0000002528.1920x1080.jpg?t=1512411962"
+    }, 
+    {
+     "path_thumbnail": "https://steamcdn-a.akamaihd.net/steam/apps/80/0000002529.600x338.jpg?t=1512411962", 
+     "id": 1, 
+     "path_full": "https://steamcdn-a.akamaihd.net/steam/apps/80/0000002529.1920x1080.jpg?t=1512411962"
+    }, 
+    {
+     "path_thumbnail": "https://steamcdn-a.akamaihd.net/steam/apps/80/0000002530.600x338.jpg?t=1512411962", 
+     "id": 2, 
+     "path_full": "https://steamcdn-a.akamaihd.net/steam/apps/80/0000002530.1920x1080.jpg?t=1512411962"
+    }, 
+    {
+     "path_thumbnail": "https://steamcdn-a.akamaihd.net/steam/apps/80/0000002531.600x338.jpg?t=1512411962", 
+     "id": 3, 
+     "path_full": "https://steamcdn-a.akamaihd.net/steam/apps/80/0000002531.1920x1080.jpg?t=1512411962"
+    }, 
+    {
+     "path_thumbnail": "https://steamcdn-a.akamaihd.net/steam/apps/80/0000002532.600x338.jpg?t=1512411962", 
+     "id": 4, 
+     "path_full": "https://steamcdn-a.akamaihd.net/steam/apps/80/0000002532.1920x1080.jpg?t=1512411962"
+    }, 
+    {
+     "path_thumbnail": "https://steamcdn-a.akamaihd.net/steam/apps/80/0000002533.600x338.jpg?t=1512411962", 
+     "id": 5, 
+     "path_full": "https://steamcdn-a.akamaihd.net/steam/apps/80/0000002533.1920x1080.jpg?t=1512411962"
+    }, 
+    {
+     "path_thumbnail": "https://steamcdn-a.akamaihd.net/steam/apps/80/0000002534.600x338.jpg?t=1512411962", 
+     "id": 6, 
+     "path_full": "https://steamcdn-a.akamaihd.net/steam/apps/80/0000002534.1920x1080.jpg?t=1512411962"
+    }, 
+    {
+     "path_thumbnail": "https://steamcdn-a.akamaihd.net/steam/apps/80/0000002535.600x338.jpg?t=1512411962", 
+     "id": 7, 
+     "path_full": "https://steamcdn-a.akamaihd.net/steam/apps/80/0000002535.1920x1080.jpg?t=1512411962"
+    }
+   ], 
+   "genres": [
+    {
+     "id": "1", 
+     "description": "Action"
+    }
+   ], 
+   "required_age": 0, 
+   "metacritic": {
+    "url": "https://www.metacritic.com/game/pc/counter-strike-condition-zero?ftag=MCD-06-10aaa1f", 
+    "score": 65
+   }, 
+   "about_the_game": "With its extensive Tour of Duty campaign, a near-limitless number of skirmish modes, updates and new content for Counter-Strike's award-winning multiplayer game play, plus over 12 bonus single player missions, Counter-Strike: Condition Zero is a tremendous offering of single and multiplayer content.", 
+   "short_description": "With its extensive Tour of Duty campaign, a near-limitless number of skirmish modes, updates and new content for Counter-Strike's award-winning multiplayer game play, plus over 12 bonus single player missions, Counter-Strike: Condition Zero is a tremendous offering of single and multiplayer content.", 
+   "developers": [
+    "Valve"
+   ], 
+   "type": "game", 
+   "supported_languages": "English, French, German, Italian, Spanish - Spain, Simplified Chinese, Traditional Chinese, Korean", 
+   "website": null, 
+   "publishers": [
+    "Valve"
+   ], 
+   "pc_requirements": {
+    "minimum": "\r\n\t\t\t<p><strong>Minimum:</strong> 500 mhz processor, 96mb ram, 16mb video card, Windows XP, Mouse, Keyboard, Internet Connection<br /></p>\r\n\t\t\t<p><strong>Recommended:</strong> 800 mhz processor, 128mb ram, 32mb+ video card, Windows XP, Mouse, Keyboard, Internet Connection<br /></p>\r\n\t\t\t"
+   }, 
+   "recommendations": {
+    "total": 7915
+   }, 
+   "is_free": false, 
+   "background": "https://steamcdn-a.akamaihd.net/steam/apps/80/page_bg_generated_v6b.jpg?t=1512411962", 
+   "packages": [
+    7
+   ], 
+   "categories": [
+    {
+     "id": 2, 
+     "description": "Single-player"
+    }, 
+    {
+     "id": 1, 
+     "description": "Multi-player"
+    }, 
+    {
+     "id": 8, 
+     "description": "Valve Anti-Cheat enabled"
+    }
+   ], 
+   "support_info": {
+    "url": "http://steamcommunity.com/app/80", 
+    "email": ""
+   }, 
+   "content_descriptors": {
+    "notes": null, 
+    "ids": []
+   }, 
+   "name": "Counter-Strike: Condition Zero", 
+   "package_groups": [
+    {
+     "description": "", 
+     "title": "Buy Counter-Strike: Condition Zero", 
+     "selection_text": "Select a purchase option", 
+     "subs": [
+      {
+       "price_in_cents_with_discount": 719, 
+       "option_description": "", 
+       "can_get_free_license": "0", 
+       "is_free_license": false, 
+       "packageid": 7, 
+       "percent_savings_text": "", 
+       "option_text": "Counter-Strike: Condition Zero - \u00a37.19", 
+       "percent_savings": 0
+      }
+     ], 
+     "display_type": 0, 
+     "is_recurring_subscription": "false", 
+     "save_text": "", 
+     "name": "default"
+    }
+   ], 
+   "release_date": {
+    "date": "1 Mar, 2004", 
+    "coming_soon": false
+   }, 
+   "linux_requirements": [], 
+   "mac_requirements": [], 
+   "header_image": "https://steamcdn-a.akamaihd.net/steam/apps/80/header.jpg?t=1512411962"
+  }, 
+  "success": true
+ }
+}

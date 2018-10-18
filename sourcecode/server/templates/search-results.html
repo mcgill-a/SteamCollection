@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% set page_title = "Search" %}
+{% set active_page = "games" %}
+{% block content %}
+<div class="games-bg">
+	<div class="banner container">
+	{% if games|length > 0 %}
+		<h1 class="page-title">Search Results Found: ({{ games|length }})</h1>
+		<div class="game-list container">
+			<div class="row row-eq-height equal">
+			{% for game in games %}
+				{% for obj in game.iterkeys() %}
+					{% for key, value in game[obj].items() %}
+						{% if key == 'data' %}
+							{# -- GAME DATA ACCESSIBLE FROM HERE (value[field]) #}
+							{% set link = value["steam_appid"] %} 
+							<div class="col-sm-4">
+								<div class="game">
+									<a href="/games/{{ link }}">
+										<img src={{ value["header_image"] }}>
+									</a>
+								</div>
+							</div>
+						{% endif %}
+					{% endfor %}
+				{% endfor %}
+				{% if loop.index % 3 == 0 %}
+					</div>
+					<div class="row row-eq-height-equal">
+				{% endif %}
+			{% endfor %}
+			</div>
+	{% else %}
+		<h1 class="page-title">No Search Results Found</h1>
+	</div>
+	{% endif %}
+	</div>
+</div>
+{% endblock %}
+

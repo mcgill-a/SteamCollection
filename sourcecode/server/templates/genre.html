@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% set page_title = genre %}
+{# {% set active_page = "genres" %} #}
+{% block content %}
+<div class="games-bg">
+	<div class="banner container">
+		<div class="pages">
+			<a href="/">Home</a> > <a href="/genres/">Genres</a> > <a href="/genres/{{ genre }}">{{ genre }}</a>
+		</div>
+		<h1 class="page-title">{{ genre }}</h1>
+	</div>
+	{% if games|length > 0 %}
+		<div class="game-list container">
+			<div class="row row-eq-height equal">
+			{% for game in games %}
+				{% for obj in game.iterkeys() %}
+					{% for key, value in game[obj].items() %}
+						{% if key == 'data' %}
+							{# -- GAME DATA ACCESSIBLE FROM HERE (value[field]) #}
+							{% set link = value["steam_appid"] %} 
+							<div class="col-sm-4">
+								<div class="game">
+									<a href="/games/{{ link }}">
+										<img src={{ value["header_image"] }}>
+									</a>
+								</div>
+							</div>
+						{% endif %}
+					{% endfor %}
+				{% endfor %}
+				{% if loop.index % 3 == 0 %}
+					</div>
+					<div class="row row-eq-height-equal">
+				{% endif %}
+			{% endfor %}
+			</div>
+	{% else %}
+		<h3 class="container" style="color: white;">0 games found for the selected genre</h3>
+	</div>
+	{% endif %}
+</div>
+{% endblock %}
+

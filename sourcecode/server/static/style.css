@@ -1,0 +1,748 @@
+html, body {
+	height: 100%;
+	margin: 0;
+	min-width: 600px;
+	max-width: 100%;
+}
+
+*:focus {
+	outline: 0;
+	outline: none;
+}
+
+.center {
+	display: flex;
+	justify-content: center;
+}
+
+.split {
+	z-index: 0;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	margin-top: 15px;
+	margin-left: 0;
+	justify-content: center;
+}
+
+.split .search {
+	padding-top: 10%;
+}
+
+.split .content {
+	z-index: 0;
+	width: auto;
+	max-width: 85%;
+	text-align: center;
+	padding-right: 16px;
+}
+.split .content .container {
+	max-width: 100%;
+	margin-right: 0;
+	padding-right: 0;
+}
+.error-bg {
+	margin-top: -25px;
+	width: 100%;
+	height: 92%;
+	background: url('resources/empty.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.error-text {
+	text-align: center;
+	width: auto;
+	color: black;
+	margin-bottom: 250px;
+	font-family: 'Ubuntu', sans-serif;
+}
+
+.error-text h1 {
+	font-size: 140px;
+	font-weight: bolder;
+}
+
+.error-text h3 {
+	font-size: 60px;
+	font-weight: bold;
+}
+
+.api {
+	margin: 25px;
+	font-family: Monospace;
+	font-size: 13px;
+}
+
+.row {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 15px;
+}
+
+.navbar-collapse {
+	background-color: #202021;
+	text-align: right;
+	z-index: 100;
+}
+
+@media (min-width: 768px) {
+	.navbar-collapse.collapse {
+		height: 75px !important;
+	}
+}
+
+.navbar-toggle {
+	margin-top: -45px;
+}
+.navbar li a {
+	color: white !important;
+	font-family: 'Poiret One', cursive;
+	font-size: 22px;
+	padding: 10px 10px !important;
+	margin: 18px 5px !important;
+}
+
+.navbar li a:hover {
+	font-weight: bolder;
+	text-decoration: none !important;
+	background: none;
+}
+
+.navbar .active a {
+	background: none !important;
+	border-bottom: 2px solid white;
+	margin: 18px 5px 16px 5px !important;
+}
+
+.navbar ul {
+	margin-right: 40px;
+}
+.navbar {
+	height: 77px;
+	border: none;
+	border-bottom: 2px solid white;
+	border-radius: 0;
+	padding-left: 3%;
+	margin-bottom: 0;
+}
+
+.navbar-brand {
+	margin-top: 12px;
+	padding: 0;
+	height: 50px;
+}
+
+@media screen and (min-width: 1000px) {
+	.navbar-brand {
+		margin-top: 0;
+		height: 75px;
+		padding: 0;
+	}
+}
+
+.navbar-brand>img {
+	height: 100%;
+	width: auto;
+}
+
+.ul.nav li {
+	color: white !important;
+}
+
+ul.dropdown-menu {
+	background: #202021 !important;
+	flex-direction: column;
+	justify-content: right;
+	text-align: right;
+	padding: 0;
+	margin: 0;
+	margin-top: 2px !important;
+	height: 200px !important;
+	min-width: 100px;
+}
+
+ul.dropdown-menu li {
+	height: 40px;
+	width: auto;
+} 
+
+.navbar ul.dropdown-neby li .active {
+	border-bottom: 2px solid white;
+}
+
+.navbar ul.dropdown-menu li a:hover {
+	background-color: none;
+}
+
+.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:focus, .navbar-inverse .navbar-nav>.open>a:hover {
+	background-color: transparent !important;
+}
+
+.navbar-inverse .navbar-nav
+
+#nav-right {
+	color: white;
+}
+
+.graphic {
+	background: url("resources/stairs.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: no-repeat;
+	min-height: 92%;
+	height: auto;
+	min-width: 100%;
+	text-align: center;
+	margin-top: -10px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.graphic h1 {
+	padding: 10px;
+	border: 2px solid white;
+	color: white;
+	font-size: 65px;
+	font-family: 'Montserrat', sans-serif;	
+}
+
+.graphic a:hover, .graphic .discover-btn:hover{
+    text-decoration: none;
+    background: #202021;
+}
+
+.graphic a, .graphic .discover-btn, .return-page-top {
+	background: none;
+	color: white;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 18px;
+	border-radius: 100px;
+	text-align: center;
+	padding: 1rem 3rem;
+	margin: 10px 10px;
+	font-weight: bold;
+	border: 2px solid white;
+}
+
+.graphic .home-buttons {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+#discover {
+	display: flex;
+	width: 100%;
+	background: #0a0a0a;
+}
+
+#discover .left {
+	width: 50%;
+	border-top: 2px solid white;
+	border-right: 1px solid white;
+}
+
+#discover .right {
+	width: 50%;
+	border-top: 2px solid white;
+	border-left: 1px solid white;
+}
+#discover .image-span {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 250px;
+	background: url("resources/wall.jpg") no-repeat center;
+	background-size: cover;
+	border-bottom: 2px solid white;
+}
+
+.shadow {
+	color: #fff;
+	letter-spacing: .05em;
+	text-shadow: 
+		4px 4px 0px #191919, 
+		7px 7px 0px rgba(0, 0, 0, 0.3);
+}
+
+#discover .image-span h1 {
+	color: white;
+	font-family: 'Poiret One', cursive;
+	font-weight: bolder;
+	font-size: 70px;
+}
+
+#discover .image-span h2 {
+	color: white;
+}
+
+#discover .list {
+	padding: 10px;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	color: white;
+	font-family: 'Ubuntu', cursive;
+	font-weight: bold;
+}
+
+#discover .list a {
+	font-size: 18px;
+	color: white;
+	border: 2px solid white;
+	padding: 2px;
+	margin: 3px 3px;
+	text-align: center;
+	width: 48%;
+}
+
+#discover .list a:link, #discover .list a:visited {
+	color: white;
+}
+.bg {
+	margin-top: -40px;
+	background: linear-gradient(rgba(0,0,0,.1), rgba(0,0,0,0.3)),url("resources/home.jpg");
+	height: 100%;
+	width: 100%;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.games-bg {
+	margin-top: -20px;
+	background: linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,0.6)),url("resources/game-bg.jpg");
+	min-height: 100%;
+	height: auto;
+}
+
+.banner {
+	margin-top: 10px;
+	color: white;
+}
+
+.up, .pages {
+	margin-top: -10px;
+}
+
+.pages {
+	font-size: 15px;
+	color: gray;
+	margin: 20px 0 -20px 0;
+}
+
+.pages a:link, .pages a:visited {
+	color: gray;
+}
+
+.pages a:hover {
+	color: white;
+}
+
+
+.page-title {
+	font-family: 'Poiret One', cursive;
+	text-align: center;
+	margin: 25px 0 15px 0;
+}
+
+.game-banner {
+	width: 100%;
+	background-size: 100%;
+	color: white;
+	display: flex;
+	padding: 10% 10% 10% 10% !important;
+	justify-content: center;
+	align-items: center;
+	max-height: 100%;
+	margin-top: -12px;
+}
+
+.game-banner h1 {
+	font-size: 30px;
+}
+
+.game-banner p {
+	font-size: 20px;
+	margin-top: 10px;
+}
+
+.game-banner .left {
+	width: 50%;
+	max-height: 300px;
+	max-width: 400px;
+	margin-right: 40px;
+	display: flex;
+	justify-content: center;
+}
+
+.game-banner .left img {
+	height: auto;
+	width: auto;	
+}
+
+@media only screen and (max-width: 950px) {
+	.game-banner .left {
+		min-height: 178px;
+		min-width: 380px;
+		margin-right: 0;
+	}
+	
+	.game-banner .left img {
+		height: 178px;
+		width: 380px;
+	}
+
+	.container {
+		width: 100%;
+	}
+}
+
+@media only screen and (max-width: 850px) {
+	.game-banner .left {
+		min-height: 117px;
+		min-width: 250px;
+		margin-right: 0;
+	}
+	
+	.game-banner .left img {
+		height: 117px;
+		width: 250px;
+	}
+}
+
+.game-banner .right {
+	width: 48%;
+	max-width: 400px;
+	margin-left: 10px;
+	display:flex;
+	flex-direction: column;
+	background: rgba(0,0,0,0.3);
+	padding: 10px;
+}
+
+.game-list .game {
+	margin: 5px -5px 5px -5px;
+	font-family: 'Ubuntu', cursive;
+	height: auto;
+	background-color: white;
+	border-radius: 10px;
+	border: 2px solid white;
+}
+
+.game img {
+	max-width: 100%;
+	border-radius: 10px;
+}
+
+.game .game-info {
+	margin: 0 4px;
+	text-align: right;
+}
+
+.game h4 {
+	font-size: 25px;
+	text-align: center;
+	font-weight: bold;
+}
+
+.game a:link {
+	color: black;
+}
+
+.game-content {
+	background: #222;
+	color: white;
+	height: auto;
+}
+
+.game-content h1, .game-content .bb_tag {
+	color: white;
+	width: 100%;
+	text-align: center;
+	font-family: 'Poiret One', cursive;
+	font-size: 30px;
+	margin-bottom: 10px;
+}
+
+.game-content img {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 10px;
+}
+
+.game-content #slides {
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+.section-title {
+	width: 100%;
+	border-bottom: 2px  solid white;
+	font-family: 'Poiret One', cursive;
+	margin-bottom: 5px;
+}
+
+.game-content .section-tags {
+	margin-top: 20px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.game-content .section-price {
+	display: flex;
+	border: 2px solid white;
+	align-items: center;
+	justify-content: center;
+}
+
+.game-content .section-price h3 {
+	margin: 0;
+	padding: 10px 0;
+	font-family: 'Poiret One', cursive;
+	font-weight: bold;
+}
+
+.game-content ul.bb_ul {
+	list-style-type: circle;
+}
+
+.game-content ul.bb_ul li {
+
+}
+.game-content ul.bb_ul {
+
+}
+
+.game-content ul.bb_ul li {
+	padding:3px 10px;
+	font-weight: 100; 
+	font-family: Arial; 
+	font-size: 13px; 
+	color: #eee; 
+	border-left: 1px solid white;
+}
+
+.game-content ul.bb_ul li ul.bb_ul li {
+	border-left: none;
+	padding: 2px 0;
+}
+
+a:link, a:visited {
+	color: white;
+	text-decoration: none;
+}
+
+.game-content a:link, .game-content a:visited {
+	color: white;
+	text-decoration: underline;
+	font-weight: bold;
+}
+
+.game-content a:hover {
+	text-decoration: underline;
+}
+
+.dev {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 20px;
+	line-height: 20px;
+	justify-content: center;
+}
+
+.dev .game-count {
+	min-width: 40px;
+	width: 60px;
+	text-align: center; 
+	height: 100%;
+	border-right: 1px solid white;
+	border: 1px solid white;
+	margin-right: -1px;
+	padding-top: 6px;
+}
+
+.dev .name {
+	height: 100%;
+	width: 500px;
+	padding-left: 14px;
+	border: 1px solid white;
+	padding-top: 6px;
+}
+
+.custom-table {
+	margin: 0 auto;
+	width: 80%;
+}
+
+.controls {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+.controls .sort {
+	width: 25%;
+	min-width: 230px;
+	padding: 0 5px;
+	display: flex;
+	flex-direction: row-reverse;
+	color: black;
+	align-items: center;
+	background:white;
+	border: 2px solid black;
+	border-left: 1px solid black;
+	font-size: 16px;
+	margin-bottom: 12px;
+}
+
+.controls .sort p {
+	margin-top: 9px;
+}
+
+
+.controls .search {
+	width: 75%;
+	border: 2px solid black;
+	border-right: 1px solid black;
+	margin-bottom: 12px;
+}
+.table-btns {
+	margin: 10px 5px;
+	padding: 5px 10px;
+	display: inline-block;
+	background: #202021;
+	border-radius: 10px;
+	border: 2px solid white;
+	color: white;
+}
+
+.table-search {
+	color: black;
+	background-image: url("resources/search.png");
+	background-position: 10px 12px;
+    background-repeat: no-repeat;
+    width: 100%;
+    font-size: 16px;
+    padding: 12px 20px 12px 40px;
+    border: 1px solid #ddd;
+    
+}
+
+.table-info {
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid #ddd;
+    font-size: 18px;
+}
+
+.table-info th, .table-info td {
+    text-align: left;
+    padding: 12px;
+}
+
+.table-info tr td, .table-info th {
+	border-left: 1px solid white;
+}
+
+.table-info tr {
+    border-bottom: 1px solid #ddd; 
+}
+
+.table-info tr.header, .table-info tr.header:hover {
+	background-color: lightblue;
+}
+.table-info tr:hover {
+    background-color: #222;
+}
+
+
+.search-form {
+	width: 185px;
+	padding: 15px 8px;
+	background-color: rgba(0,0,0,0.3);
+	font-size: 15px;
+}
+
+.search-form .form-input input {
+	resize: none;
+	font-size: 13px;
+	border-radius: 4px;
+}
+
+input:disabled {
+	background: none !important;
+}
+
+.search-form .form-row {
+	margin-top: 5px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	width: auto;
+}
+
+.search-form .form-row .form-heading {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.search-form .form-row .form-heading input {
+	margin-bottom: 4px;
+	transform: scale(1.3);
+	margin-right: 5px;
+	border: 1px solid black;
+}
+
+.search-form .form-row .form-heading h3 {
+	width: 80px;
+	text-align: right;
+	margin-right: 10px;
+	font-size: 15px;
+	margin-top: 4px;
+	line-height: 25px;
+}
+
+
+.search-form .form-row .form-input {
+	color: black;
+	width: 200px;
+}
+
+.search-form .form-submit {
+	margin-top: 10px;
+	color: black;
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.search-form .from-submit a {
+	width: 45% !important;
+}
+
+.search-form .form-submit a input {
+	padding: 6px 12px !important;
+	width: 111%;
+}
+.search-form .form-submit input {
+	width: 45%;
+	color: black;
+	font-weight: bold;
+}
+

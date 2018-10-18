@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block content %}
+	<div class="bg">
+		<div class="landing">
+            <h1 class="main-title">STEAM PROJECT</h1>
+            <h3 class="sub-title">Steam Game Collection</h3>
+            <p class="intro">
+               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin tristique arcu vel est ornare, eu tincidunt eros mattis. Proin vitae nisl ac velit lacinia mattis sed eget nibh. Phasellus libero risus, dictum eu enim vitae, venenatis consequat metus.
+            </p>
+                <form>
+					<a href="/developers/" class="btn">DEVELOPERS</a>
+					<a href="/genres/" class="btn">GENRES</a>
+					<a href="/categories/" class="btn">CATEGORIES</a>
+				</form>
+        </div>
+	</div>
+	{#
+	{% if files|length > 0 %}
+		<div class="game-list container">
+			<div class="row row-eq-height">
+			{% for game in files %}
+				{% for obj in game.iterkeys() %}
+					{% for key, value in game[obj].items() %}
+						{% if key == 'data' %}
+							{% set link = value["steam_appid"] %} 
+							<div class="col-sm-4">
+							<div class="game">
+								<a href="/game/{{ link }}">
+									<img src={{ value["header_image"] }}>
+									<h4>{{ value["name"] }}</h4>
+								</a>
+								{% if value["price_overview"] %}
+                                    <p>Price: £{{ value["price_overview"]["final"] / 100 }}</p>
+								{% else %}
+									<p>Free to Play</p>
+								{% endif %}
+							</div></div>
+						{% endif %}
+					{% endfor %}
+				{% endfor %}
+				{% if loop.index % 3 == 0 %}
+					</div>
+					<div class="row row-eq-height">
+				{% endif %}
+			{% endfor %}
+		</div>
+		</div>
+	{% else %}
+		<p>No data provided</p>
+	{% endif %}
+	#}
+{% endblock %}
+
