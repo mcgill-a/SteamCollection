@@ -1,7 +1,7 @@
 html, body {
 	height: 100%;
 	margin: 0;
-	min-width: 800px;
+	min-width: 600px;
 	max-width: 100%;
 }
 
@@ -85,6 +85,14 @@ html, body {
 	margin-bottom: 15px;
 }
 
+.navbar-collapse {
+	background-color: #202021;
+	text-align: right;
+}
+
+.navbar-toggle {
+	margin-top: -45px;
+}
 .navbar li a {
 	color: white !important;
 	font-family: 'Poiret One', cursive;
@@ -392,6 +400,19 @@ ul.dropdown-menu li {
 
 	.container {
 		width: 100%;
+	}
+}
+
+@media only screen and (max-width: 850px) {
+	.game-banner .left {
+		min-height: 117px;
+		min-width: 250px;
+		margin-right: 0;
+	}
+	
+	.game-banner .left img {
+		height: 117px;
+		width: 250px;
 	}
 }
 
