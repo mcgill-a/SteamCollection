@@ -25,11 +25,11 @@ def error_500(e):
 	return render_template('error.html', error=500, previous=previous), 500
 
 
-#@app.route('/games/')
 def games():
 	games = load_games()
 	random.shuffle(games)
 	return render_template('games.html', games=games)
+
 
 def random_game():
 	games = load_games()
@@ -37,11 +37,12 @@ def random_game():
 	appid = next(iter(game))
 	return appid
 
-#@app.route('/search/')
+
 @app.route('/games/')
 def search():
 	args = request.args.to_dict()
 	filtered = {}
+	# Filter out any empty queries
 	for key, value in args.iteritems():
 		if value:
 			filtered[key] = value
@@ -56,6 +57,8 @@ def search():
 		else:
 			return render_template('search.html', games=matched, empty_search=True, no_results=False)
 
+
+# Regex that removes any html tags from a string
 def remove_html_tags(input):
 	expr = re.compile('<.*?>')
 	cleaned = re.sub(expr, '', input)
@@ -86,18 +89,17 @@ def game(appid=None):
 
 def load_games():
 	games = []
-	count = 0
 	directory = "data/steam-api/"
 	full_path = os.path.join(app.static_folder, directory)
 	for filename in os.listdir(full_path):
-		if filename.endswith(".json") and count < 100:
+		if filename.endswith(".json"):
 			file_path = (full_path + filename)
 			with open(file_path) as data:
 				info = json.load(data)
 				name = os.path.splitext(os.path.basename(file_path))[0]
+				# Make sure the JSON file is valid. Steam API returns success : true if it is
 				if info[name]["success"] == True:
 					games.append(info)
-					count += 1
 	return games
 
 
@@ -129,7 +131,6 @@ def load_genre_games(genre_input):
 	games = load_games()
 	relevant_games = []
 	for index, game in enumerate(games):
-		genres = []
 		appid = next(iter(games[index]))
 		if "genres" in game[str(appid)]["data"]:
 			for genre in game[str(appid)]["data"]["genres"]:
@@ -142,7 +143,6 @@ def load_category_games(cat_input):
 	games = load_games()
 	relevant_games = []
 	for index, game in enumerate(games):
-		genres = []
 		appid = next(iter(games[index]))
 		if "categories" in game[str(appid)]["data"]:
 			for category in game[str(appid)]["data"]["categories"]:
@@ -151,13 +151,13 @@ def load_category_games(cat_input):
 	return relevant_games
 
 
+# Seperate method to decrease load times
 def load_developer_games(dev):
 	games = []
-	count = 0
 	directory = "data/steam-api/"
 	full_path = os.path.join(app.static_folder, directory)
 	for filename in os.listdir(full_path):
-		if filename.endswith(".json") and count < 100:
+		if filename.endswith(".json"):
 			file_path = (full_path + filename)
 			with open(file_path) as data:
 				info = json.load(data)
@@ -166,7 +166,6 @@ def load_developer_games(dev):
 					for current in info[name]["data"]["developers"]:
 						if current.lower() == dev.lower():
 							games.append(info)
-							count += 1
 	return games
 
 
