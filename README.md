@@ -4,39 +4,39 @@
 
 ## Features
 
-Landing Page:
+Modern Landing Page:
 
-![](report/resources/screenshots/home)
+![](report/resources/screenshots/home.png)
 
 Game Listing Display & Search Interface:
 
-![](report/resources/screenshots/games)
+![](report/resources/screenshots/games.png)
 
 Game Page:
 
-![](report/resources/screenshots/game-page-1)
-![](report/resources/screenshots/game-page-2)
-![](report/resources/screenshots/game-page-3)
+![](report/resources/screenshots/game-page-1.png)
+![](report/resources/screenshots/game-page-2.png)
+![](report/resources/screenshots/game-page-3.png)
 
 Search Results:
 
-![](report/resources/screenshots/gsearch-results)
+![](report/resources/screenshots/gsearch-results.png)
 
 Genres, Developers & Categories Pages:
 
-![](misc/demo/screenshots/categories-cropped.png)
+![](report/resources/screenshots/categories-cropped.png)
 
 Parent Link Hierarchy:
 
-![](misc/demo/screenshots/category-cropped)
+![](report/resources/screenshots/category-cropped.png)
 
 API with Logging:
 
-![](misc/demo/screenshots/api-cropped)
+![](report/resources/screenshots/api-cropped.png)
 
 Responsive Navigation Bar:
 
-![](misc/demo/screenshots/responsive-nav)
+![](report/resources/screenshots/responsive-nav.png)
 
 ## Required Development Setup
 
