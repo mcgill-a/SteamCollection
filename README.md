@@ -20,7 +20,7 @@ Game Page:
 
 Search Results:
 
-![](report/resources/screenshots/gsearch-results.png)
+![](report/resources/screenshots/search-results.png)
 
 Genres, Developers & Categories Pages:
 
